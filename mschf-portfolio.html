@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DROP 001 — X-Traordinary Development × MSCHF</title>
+<meta name="description" content="A portfolio manufactured exclusively for MSCHF. Web experiences, full-stack products, and classified enterprise builds by X-Traordinary Development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFEDE8;
+  --ink:#101010;
+  --red:#E4002B;
+  --graphite:#6E6A63;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Space Grotesk',sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--red);color:#fff}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.display{font-family:'Anton',sans-serif;letter-spacing:.01em;line-height:.92;text-transform:uppercase}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 24px;
+  border-bottom:2px solid var(--ink);
+  background:var(--paper);
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+}
+.topbar .dot{display:inline-block;width:8px;height:8px;background:var(--red);border-radius:50%;margin-right:8px;animation:blink 1.6s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+.topbar nav{display:flex;gap:22px}
+.topbar nav a{text-decoration:none}
+.topbar nav a:hover{color:var(--red)}
+@media(max-width:760px){.topbar nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:120px 24px 0;
+}
+#stage{position:absolute;inset:0;z-index:0}
+.hero-inner{position:relative;z-index:2;pointer-events:none}
+.drop-tag{
+  display:inline-flex;align-items:center;gap:10px;pointer-events:auto;
+  border:2px solid var(--ink);background:var(--paper);
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  padding:8px 14px;margin-bottom:22px;
+}
+.drop-tag b{color:var(--red)}
+.hero h1{font-size:clamp(64px,13.5vw,220px);margin-left:-.04em}
+.hero h1 .red{color:var(--red)}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:2.5px var(--ink)}
+.hero-sub{
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:18px;
+  border-top:2px solid var(--ink);margin-top:34px;padding:16px 0 20px;
+}
+.hero-sub p{max-width:520px;font-size:15px;line-height:1.55}
+.hero-sub .spec{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-align:right;color:var(--graphite)}
+.hero-sub .spec span{display:block}
+.barcode{display:flex;align-items:flex-end;gap:2px;height:38px;margin-top:8px;justify-content:flex-end}
+.barcode i{display:block;background:var(--ink);width:2px;height:100%}
+.barcode i:nth-child(3n){width:5px}
+.barcode i:nth-child(4n){height:70%}
+.barcode i:nth-child(5n){width:1px}
+
+/* ---------- marquee ---------- */
+.marquee{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-block;padding:12px 0;animation:scroll 26s linear infinite;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.marquee-track .r{color:var(--red)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{padding:0 24px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;padding:80px 0 24px;border-bottom:3px solid var(--ink)}
+.sec-head h2{font-size:clamp(44px,7vw,110px)}
+.sec-head .count{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite);text-align:right}
+.sec-head .count b{color:var(--red)}
+
+/* ---------- project rows ---------- */
+.project{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);border-bottom:2px solid var(--ink)}
+.project.flip .p-frame{order:2}
+.project.flip .p-meta{order:1;border-right:2px solid var(--ink);border-left:none}
+.p-frame{padding:44px 44px 44px 0;min-width:0}
+.project.flip .p-frame{padding:44px 0 44px 44px}
+.p-meta{border-left:2px solid var(--ink);padding:44px 0 44px 44px;display:flex;flex-direction:column;justify-content:center;gap:18px;min-width:0}
+.project.flip .p-meta{padding:44px 44px 44px 0}
+.p-num{font-family:'Anton',sans-serif;font-size:clamp(40px,4.5vw,68px);color:transparent;-webkit-text-stroke:2px var(--red);line-height:1}
+.p-title{font-size:clamp(28px,3vw,44px)}
+.p-desc{font-size:15px;line-height:1.6;max-width:46ch}
+.p-tags{display:flex;flex-wrap:wrap;gap:8px}
+.p-tags span{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid var(--ink);padding:5px 10px}
+.p-link{
+  margin-top:6px;align-self:flex-start;
+  font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  text-decoration:none;border:2px solid var(--ink);padding:12px 20px;background:var(--paper);
+  transition:background .15s,color .15s;
+}
+.p-link:hover{background:var(--red);border-color:var(--red);color:#fff}
+
+/* browser frame */
+.frame{
+  border:2.5px solid var(--ink);background:#fff;box-shadow:10px 10px 0 var(--ink);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;will-change:transform;
+}
+.chrome{display:flex;align-items:center;gap:8px;border-bottom:2.5px solid var(--ink);padding:9px 12px;background:var(--paper)}
+.chrome .c-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--ink);flex:none}
+.chrome .c-dot.r{background:var(--red);border-color:var(--red)}
+.chrome .c-url{
+  flex:1;margin-left:6px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.04em;
+  border:1.5px solid var(--ink);padding:4px 10px;background:#fff;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--graphite);
+}
+.golive{
+  flex:none;cursor:pointer;font-family:'Space Mono',monospace;font-size:9px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--red);
+  background:none;border:1.5px solid var(--red);padding:4px 8px;
+}
+.golive:hover{background:var(--red);color:#fff}
+.golive[disabled]{border-color:var(--graphite);color:var(--graphite);cursor:default;background:none}
+
+/* screenshot viewport with hover auto-scroll */
+/* 16:10 matches the 1440x900 viewport the shots were captured at, so the frame
+   rests on exactly the site's above-the-fold view. Every child in here is
+   position:absolute, so this box has zero intrinsic height on its own — the
+   padding-top hack is the real source of height; aspect-ratio (below) just
+   overrides it where supported. Belt-and-suspenders for older Safari/WebKit. */
+.viewport{position:relative;overflow:hidden;background:#e8e6e1}
+.viewport::before{content:"";display:block;padding-top:62.5%}
+.viewport{aspect-ratio:16/10}
+@supports (aspect-ratio:16/10){.viewport::before{content:none}}
+.viewport .loading{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--graphite);
+}
+.viewport .loading::after{content:"RENDERING…"}
+.shot{
+  position:absolute;top:0;left:0;width:100%;height:auto;display:block;
+  transition:transform 7s linear;
+}
+.viewport.ready .loading{display:none}
+/* the still sits underneath as a poster while the real site boots */
+.viewport iframe{
+  width:1440px;border:0;transform-origin:0 0;position:absolute;top:0;left:0;background:#fff;
+  pointer-events:none;                     /* click-through: page scroll still works */
+  opacity:0;transition:opacity .45s ease;
+}
+.viewport.live iframe{opacity:1}
+.viewport.interactive iframe{pointer-events:auto}
+.overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:16px;text-decoration:none}
+.overlay .chip{
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--ink);color:#fff;padding:10px 16px;
+  opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;
+}
+.overlay:hover .chip,.overlay:focus-visible .chip{opacity:1;transform:none;background:var(--red)}
+/* only hand the pointer to the embed once you ask to drive it */
+.viewport.interactive .overlay{pointer-events:none}
+.viewport.interactive .overlay .chip{display:none}
+.golive.on{background:var(--red);color:#fff}
+@media(max-width:980px){
+  .project{grid-template-columns:1fr}
+  .p-frame,.project.flip .p-frame{padding:36px 0 8px;order:1}
+  .p-meta,.project.flip .p-meta{border-left:none;border-right:none;padding:20px 0 40px;order:2}
+}
+
+/* ---------- classified ---------- */
+/* direct child of <body>, so it is already full-bleed — a negative
+   margin here just pushed 24px past the viewport and forced a scrollbar */
+.classified-wrap{background:var(--ink);color:var(--paper);padding:0 24px}
+.classified-wrap .sec-head{border-bottom-color:var(--paper);padding-top:90px}
+.classified-wrap .sec-head .count{color:#9b968e}
+.stamp{
+  display:inline-block;transform:rotate(-4deg);border:3px solid var(--red);color:var(--red);
+  font-family:'Space Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.28em;text-transform:uppercase;
+  padding:8px 16px;margin-bottom:8px;
+}
+.dossiers{display:grid;grid-template-columns:repeat(3,1fr);border-left:2px solid var(--paper);border-bottom:2px solid var(--paper)}
+.dossier{border-right:2px solid var(--paper);border-top:2px solid var(--paper);padding:34px 28px 40px;display:flex;flex-direction:column;gap:16px;min-height:380px}
+.dossier:hover{background:#181818}
+.d-file{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#9b968e;display:flex;justify-content:space-between}
+.d-file b{color:var(--red)}
+.d-title{font-size:clamp(24px,2.4vw,34px)}
+.d-body{font-size:14px;line-height:1.65;color:#cfcbc4}
+.redact{display:inline-block;background:var(--paper);color:var(--paper);border-radius:1px;user-select:none;padding:0 4px;line-height:1.1;transform:translateY(2px)}
+.d-specs{margin-top:auto;display:flex;flex-direction:column;gap:6px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.d-specs div{display:flex;justify-content:space-between;border-top:1px solid #3a3a3a;padding-top:6px}
+.d-specs .v{color:var(--paper)}
+.d-specs .v.r{color:var(--red)}
+@media(max-width:980px){.dossiers{grid-template-columns:1fr}}
+
+/* ---------- capabilities ---------- */
+.caps{display:grid;grid-template-columns:repeat(4,1fr);border-left:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.cap{border-right:2px solid var(--ink);border-top:2px solid var(--ink);padding:28px 24px 34px}
+.cap .k{font-family:'Anton',sans-serif;font-size:15px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px}
+.cap .k::before{content:"■ ";color:var(--red)}
+.cap ul{list-style:none;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;line-height:2.1;color:var(--graphite);text-transform:uppercase}
+@media(max-width:980px){.caps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.caps{grid-template-columns:1fr}}
+
+/* ---------- cta ---------- */
+.cta{text-align:center;padding:110px 24px 60px}
+.cta h2{font-size:clamp(52px,10vw,160px)}
+.cta h2 .red{color:var(--red)}
+.cta p{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite);margin:22px 0 34px}
+.cta-btn{
+  display:inline-block;text-decoration:none;
+  font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--red);color:#fff;border:2.5px solid var(--red);padding:20px 44px;box-shadow:8px 8px 0 var(--ink);
+  transition:transform .15s,box-shadow .15s;
+}
+.cta-btn:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
+footer{
+  border-top:2px solid var(--ink);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+  padding:18px 24px 26px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite);
+}
+footer b{color:var(--ink)}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div><span class="dot"></span>X-TRAORDINARY DEV</div>
+  <nav>
+    <a href="#work">The Work</a>
+    <a href="#classified">Classified</a>
+    <a href="#caps">Capabilities</a>
+    <a href="#contact">Transmit</a>
+  </nav>
+  <div style="color:var(--red);font-weight:700">FOR: MSCHF</div>
+</header>
+
+<div class="hero" id="top">
+  <div id="stage" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="drop-tag">DROP <b>001</b> · PORTFOLIO · MANUFACTURED EXCLUSIVELY FOR <b>MSCHF</b> · NOT FOR RESALE</span>
+    <h1 class="display">I BUILD<br><span class="outline">INTERNET</span><br><span class="red">ARTIFACTS.</span></h1>
+    <div class="hero-sub">
+      <p>This page exists for one audience. Below: six live sites rendered in miniature, three builds too classified to show, and a standing offer to make weird, beautiful, functional things with the most interesting studio on the internet.</p>
+      <div class="spec">
+        <span>UNIT: X-TRAORDINARY DEVELOPMENT LLC</span>
+        <span>CLASS: DESIGN-ENGINEER / FULL-STACK</span>
+        <span>STATUS: <b style="color:var(--red)">AVAILABLE</b></span>
+        <div class="barcode" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    DESIGN <span class="r">✕</span> ENGINEERING <span class="r">✕</span> 3D <span class="r">✕</span> FULL-STACK <span class="r">✕</span> AI SYSTEMS <span class="r">✕</span> DROP 001 <span class="r">✕</span> MADE FOR MSCHF <span class="r">✕</span>&nbsp;
+    DESIGN <span class="r">✕</span> ENGINEERING <span class="r">✕</span> 3D <span class="r">✕</span> FULL-STACK <span class="r">✕</span> AI SYSTEMS <span class="r">✕</span> DROP 001 <span class="r">✕</span> MADE FOR MSCHF <span class="r">✕</span>&nbsp;
+  </div>
+</div>
+
+<section id="work">
+  <div class="sec-head reveal">
+    <h2 class="display">The Work</h2>
+    <div class="count"><b>06</b> LIVE SPECIMENS · RUNNING IN REAL TIME<br>SCROLL TO WATCH · <b>INTERACT</b> TO DRIVE ONE YOURSELF</div>
+  </div>
+
+  <!-- 01 -->
+  <article class="project reveal">
+    <div class="p-frame">
+      <div class="frame" data-tilt>
+        <div class="chrome">
+          <span class="c-dot r"></span><span class="c-dot"></span><span class="c-dot"></span>
+          <span class="c-url">x-traordinary.ai</span>
+          <button class="golive" data-golive>● GO LIVE</button>
+        </div>
+        <div class="viewport" data-url="https://x-traordinary.ai/">
+          <div class="loading"></div>
+          <img class="shot" alt="X-Traordinary.ai site screenshot" loading="lazy" width="1100" height="2600"
+               src="assetsmschf/xt.webp">
+          <a class="overlay" href="https://x-traordinary.ai/" target="_blank" rel="noopener" aria-label="Open X-Traordinary.ai live site"><span class="chip">Visit Live ↗</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="p-meta">
+      <div class="p-num">01</div>
+      <h3 class="p-title display">X-Traordinary.ai</h3>
+      <p class="p-desc">An AI consultancy's front door. A live terminal boot sequence, animated service grid, and a neural-command aesthetic — the site itself is the pitch for what the studio builds: machine learning, automation, and custom AI systems.</p>
+      <div class="p-tags"><span>Studio Site</span><span>Motion Design</span><span>AI Services</span><span>Interactive</span></div>
+      <a class="p-link" href="https://x-traordinary.ai/" target="_blank" rel="noopener">Inspect Specimen ↗</a>
+    </div>
+  </article>
+
+  <!-- 02 -->
+  <article class="project flip reveal">
+    <div class="p-frame">
+      <div class="frame" data-tilt>
+        <div class="chrome">
+          <span class="c-dot r"></span><span class="c-dot"></span><span class="c-dot"></span>
+          <span class="c-url">gridly-mvp.vercel.app</span>
+          <button class="golive" data-golive>● GO LIVE</button>
+        </div>
+        <div class="viewport" data-url="https://gridly-mvp.vercel.app/">
+          <div class="loading"></div>
+          <img class="shot" alt="GridLink site screenshot" loading="lazy" width="1100" height="2200"
+               src="assetsmschf/grid.webp">
+          <a class="overlay" href="https://gridly-mvp.vercel.app/" target="_blank" rel="noopener" aria-label="Open GridLink live site"><span class="chip">Visit Live ↗</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="p-meta">
+      <div class="p-num">02</div>
+      <h3 class="p-title display">GridLink</h3>
+      <p class="p-desc">Not a website — a product. A full-stack procurement operating system for enterprise fuel buying: sourcing events, verified supplier network, AI-assisted bid comparison, compliance tracking, and an audit-ready system of record. Designed, architected, and shipped end to end.</p>
+      <div class="p-tags"><span>Full-Stack SaaS</span><span>Next.js</span><span>Dashboards</span><span>AI Bid Engine</span></div>
+      <a class="p-link" href="https://gridly-mvp.vercel.app/" target="_blank" rel="noopener">Inspect Specimen ↗</a>
+    </div>
+  </article>
+
+  <!-- 03 -->
+  <article class="project reveal">
+    <div class="p-frame">
+      <div class="frame" data-tilt>
+        <div class="chrome">
+          <span class="c-dot r"></span><span class="c-dot"></span><span class="c-dot"></span>
+          <span class="c-url">xtraordinarydev.github.io/VSC-Peptides</span>
+          <button class="golive" data-golive>● GO LIVE</button>
+        </div>
+        <div class="viewport" data-url="https://xtraordinarydev.github.io/VSC-Peptides/">
+          <div class="loading"></div>
+          <img class="shot" alt="VSC Peptides site screenshot" loading="lazy" width="1100" height="2600"
+               src="assetsmschf/vsc.webp">
+          <a class="overlay" href="https://xtraordinarydev.github.io/VSC-Peptides/" target="_blank" rel="noopener" aria-label="Open VSC Peptides live site"><span class="chip">Visit Live ↗</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="p-meta">
+      <div class="p-num">03</div>
+      <h3 class="p-title display">VSC Peptides</h3>
+      <p class="p-desc">A lab-grade e-commerce experience for a research peptide company. Scroll-driven storytelling, animated purity counters, an interactive spec sheet, and a four-phase batch-verification narrative — clinical precision as a brand aesthetic.</p>
+      <div class="p-tags"><span>Brand Site</span><span>Scroll Animation</span><span>E-Comm UX</span><span>GitHub Pages</span></div>
+      <a class="p-link" href="https://xtraordinarydev.github.io/VSC-Peptides/" target="_blank" rel="noopener">Inspect Specimen ↗</a>
+    </div>
+  </article>
+
+  <!-- 04 -->
+  <article class="project flip reveal">
+    <div class="p-frame">
+      <div class="frame" data-tilt>
+        <div class="chrome">
+          <span class="c-dot r"></span><span class="c-dot"></span><span class="c-dot"></span>
+          <span class="c-url">low-fuel.com</span>
+          <button class="golive" data-golive>● GO LIVE</button>
+        </div>
+        <div class="viewport" data-url="https://low-fuel.com/">
+          <div class="loading"></div>
+          <img class="shot" alt="Low Fuel site screenshot" loading="lazy" width="1100" height="2600"
+               src="assetsmschf/lf.webp">
+          <a class="overlay" href="https://low-fuel.com/" target="_blank" rel="noopener" aria-label="Open Low Fuel live site"><span class="chip">Visit Live ↗</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="p-meta">
+      <div class="p-num">04</div>
+      <h3 class="p-title display">Low Fuel</h3>
+      <p class="p-desc">Full corporate web presence for a mobile fueling company serving aviation, construction, government, and education. Video-first hero, multi-vertical service architecture, and lead-capture flows built to win contracts — "the gas station comes to you."</p>
+      <div class="p-tags"><span>Corporate</span><span>Multi-Page</span><span>Video Hero</span><span>Lead Gen</span></div>
+      <a class="p-link" href="https://low-fuel.com/" target="_blank" rel="noopener">Inspect Specimen ↗</a>
+    </div>
+  </article>
+
+  <!-- 05 -->
+  <article class="project reveal">
+    <div class="p-frame">
+      <div class="frame" data-tilt>
+        <div class="chrome">
+          <span class="c-dot r"></span><span class="c-dot"></span><span class="c-dot"></span>
+          <span class="c-url">trk-contracting.com</span>
+          <button class="golive" data-golive>● GO LIVE</button>
+        </div>
+        <div class="viewport" data-url="https://trk-contracting.com/index.html">
+          <div class="loading"></div>
+          <img class="shot" alt="The R3D Key Contracting site screenshot" loading="lazy" width="1100" height="2600"
+               src="assetsmschf/trk.webp">
+          <a class="overlay" href="https://trk-contracting.com/index.html" target="_blank" rel="noopener" aria-label="Open The R3D Key Contracting live site"><span class="chip">Visit Live ↗</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="p-meta">
+      <div class="p-num">05</div>
+      <h3 class="p-title display">The R3D Key</h3>
+      <p class="p-desc">A conversion machine for a licensed Minnesota general contractor. Vertical before/after video sliders, live Google review integration, and a five-step process walkthrough — designed to turn homeowners into booked estimates, and it does.</p>
+      <div class="p-tags"><span>Local Business</span><span>Video Sliders</span><span>Reviews</span><span>Conversion</span></div>
+      <a class="p-link" href="https://trk-contracting.com/index.html" target="_blank" rel="noopener">Inspect Specimen ↗</a>
+    </div>
+  </article>
+
+  <!-- 06 -->
+  <article class="project flip reveal">
+    <div class="p-frame">
+      <div class="frame" data-tilt>
+        <div class="chrome">
+          <span class="c-dot r"></span><span class="c-dot"></span><span class="c-dot"></span>
+          <span class="c-url">platesandplaymakers.com</span>
+          <button class="golive" data-golive>● GO LIVE</button>
+        </div>
+        <div class="viewport" data-url="https://platesandplaymakers.com/">
+          <div class="loading"></div>
+          <img class="shot" alt="Plates and Playmakers site screenshot" loading="lazy" width="1100" height="2600"
+               src="assetsmschf/pnp.webp">
+          <a class="overlay" href="https://platesandplaymakers.com/" target="_blank" rel="noopener" aria-label="Open Plates and Playmakers live site"><span class="chip">Visit Live ↗</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="p-meta">
+      <div class="p-num">06</div>
+      <h3 class="p-title display">Plates &amp; Playmakers</h3>
+      <p class="p-desc">Event platform for a luxury charity gala descended from Taste of the NFL — 12 James Beard-caliber chefs, pro athletes at every table. Chef roster galleries, live countdown, ticketing and $10K sponsorship funnels for a 501(c)(3) that's helped serve over 100 million meals fighting hunger in Minnesota.</p>
+      <div class="p-tags"><span>Event Platform</span><span>Ticketing</span><span>Sponsor Funnel</span><span>Nonprofit</span></div>
+      <a class="p-link" href="https://platesandplaymakers.com/" target="_blank" rel="noopener">Inspect Specimen ↗</a>
+    </div>
+  </article>
+</section>
+
+<div class="classified-wrap" id="classified">
+  <section style="padding:0">
+    <div class="sec-head reveal">
+      <div>
+        <span class="stamp">Classified</span>
+        <h2 class="display">The Work You<br>Can't See</h2>
+      </div>
+      <div class="count"><b>03</b> FILES · NDA / INTERNAL<br>DETAILS AVAILABLE ON A CALL</div>
+    </div>
+    <div class="dossiers">
+      <article class="dossier reveal">
+        <div class="d-file"><span>FILE 07-A</span><b>NDA // ACTIVE</b></div>
+        <h3 class="d-title display">FundStart AI</h3>
+        <p class="d-body">Custom AI platform for the AEC industry: a chatbot trained on <span class="redact">internal documentation</span> with a purpose-built search engine focused on government funding opportunities. Retrieval pipeline, <span class="redact">embedding architecture</span>, and a chat UI their team actually uses daily.</p>
+        <div class="d-specs">
+          <div><span>Type</span><span class="v">AI / RAG Platform</span></div>
+          <div><span>Scope</span><span class="v">Full-Stack + LLM Ops</span></div>
+          <div><span>Demo</span><span class="v r">Live Walkthrough Only</span></div>
+        </div>
+      </article>
+      <article class="dossier reveal">
+        <div class="d-file"><span>FILE 07-B</span><b>INTERNAL // ENTERPRISE</b></div>
+        <h3 class="d-title display">U.S. Bank</h3>
+        <p class="d-body">Engineering on internal applications serving <span class="redact">extremely large</span> user groups inside one of America's biggest banks. The kind of environment where <span class="redact">code review</span> is a contact sport and uptime is non-negotiable.</p>
+        <div class="d-specs">
+          <div><span>Type</span><span class="v">Internal Apps</span></div>
+          <div><span>Scale</span><span class="v">Enterprise / Regulated</span></div>
+          <div><span>Demo</span><span class="v r">References Available</span></div>
+        </div>
+      </article>
+      <article class="dossier reveal">
+        <div class="d-file"><span>FILE 07-C</span><b>INTERNAL // ENTERPRISE</b></div>
+        <h3 class="d-title display">CHS Inc.</h3>
+        <p class="d-body">Multiple internal application builds for a Fortune-scale agribusiness cooperative — tooling used by <span class="redact">thousands of employees</span> across operations. Shipped, adopted, and <span class="redact">still running</span>.</p>
+        <div class="d-specs">
+          <div><span>Type</span><span class="v">Internal Tooling</span></div>
+          <div><span>Scale</span><span class="v">Fortune 100 Co-op</span></div>
+          <div><span>Demo</span><span class="v r">References Available</span></div>
+        </div>
+      </article>
+    </div>
+    <div style="height:70px"></div>
+  </section>
+</div>
+
+<section id="caps">
+  <div class="sec-head reveal">
+    <h2 class="display">Capabilities</h2>
+    <div class="count">FROM PIXEL <b>→</b> PRODUCTION</div>
+  </div>
+  <div class="caps reveal">
+    <div class="cap"><div class="k">Front of House</div><ul><li>Interactive / 3D Web</li><li>Motion &amp; Scroll Design</li><li>Brand-First Builds</li><li>React / Next.js</li></ul></div>
+    <div class="cap"><div class="k">Back of House</div><ul><li>Full-Stack Products</li><li>APIs &amp; Databases</li><li>Auth / Payments</li><li>Vercel / Cloud Deploys</li></ul></div>
+    <div class="cap"><div class="k">Machine Room</div><ul><li>Custom AI Chatbots</li><li>RAG / Doc Search</li><li>LLM Integrations</li><li>Automation Pipelines</li></ul></div>
+    <div class="cap"><div class="k">Field Tested</div><ul><li>Enterprise Environments</li><li>Massive User Groups</li><li>Fast MVP Turnaround</li><li>Zero-to-Launch Solo</li></ul></div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="reveal">
+    <h2 class="display">Let's Make<br><span class="red">Something Weird.</span></h2>
+    <p>Drop 001 was made for you. Drop 002 gets made with you.</p>
+    <a class="cta-btn" href="mailto:xtraordinaryDev@outlook.com?subject=MSCHF%20%C3%97%20X-Traordinary">Transmit → xtraordinaryDev@outlook.com</a>
+  </div>
+</section>
+
+<footer>
+  <span><b>X-TRAORDINARY DEVELOPMENT LLC</b></span>
+  <span>DROP 001 · EDITION 1 OF 1 · FOR <b style="color:var(--red)">MSCHF</b> OPERATIONS ONLY</span>
+  <span>© 2026 · ALL SPECIMENS LIVE &amp; IN PRODUCTION</span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch = window.matchMedia('(pointer:coarse)').matches;
+
+  /* ---------- reveals ----------
+     Runs first and on its own: .reveal starts at opacity:0, so if anything
+     below (WebGL, CDN miss) threw before this ran, the whole page stayed blank. */
+  if (window.IntersectionObserver) {
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); obs.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 3D HERO ----------
+     This used to run requestAnimationFrame forever — full tilt, forever, even
+     scrolled three screens away, even with the tab backgrounded. That's a
+     sustained GPU/battery/memory load for as long as the page stays open,
+     which is a solid way to get a phone tab killed. Now: lighter scene and
+     lower pixel ratio on touch devices, and the loop only runs while the hero
+     is actually on screen and the tab is actually visible. */
+  var stage = document.getElementById('stage');
+  try {
+  if (window.THREE && stage) {
+    var W = stage.clientWidth, H = stage.clientHeight;
+    var scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0xEFEDE8, 10, 26);
+    var camera = new THREE.PerspectiveCamera(45, W/H, .1, 100);
+    camera.position.set(0, 0, 13);
+    var renderer = new THREE.WebGLRenderer({ antialias:!touch, alpha:true, powerPreference:'low-power' });
+    renderer.setSize(W, H);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, touch ? 1 : 2));
+    stage.appendChild(renderer.domElement);
+
+    var RED = 0xE4002B, INK = 0x101010;
+    var core = new THREE.Group();
+    core.add(new THREE.Mesh(new THREE.IcosahedronGeometry(2.1,0), new THREE.MeshBasicMaterial({color:RED,wireframe:true})));
+    core.add(new THREE.Mesh(new THREE.IcosahedronGeometry(1.15,0), new THREE.MeshBasicMaterial({color:INK,wireframe:true})));
+    core.position.set(3.2, 1.2, -2);
+    scene.add(core);
+
+    var screens = new THREE.Group();
+    var panelGeo = new THREE.BoxGeometry(1.7, 1.1, 0.05);
+    var edgeGeo = new THREE.EdgesGeometry(panelGeo);
+    var panelCount = touch ? 8 : 16;
+    for (var i = 0; i < panelCount; i++) {
+      var g = new THREE.Group();
+      g.add(new THREE.Mesh(panelGeo, new THREE.MeshBasicMaterial({color:0xffffff, transparent:true, opacity:0.55})));
+      g.add(new THREE.LineSegments(edgeGeo, new THREE.LineBasicMaterial({color:(i%4===0)?RED:INK})));
+      var r = 5.2 + Math.random()*4.5, theta = Math.random()*Math.PI*2;
+      g.position.set(Math.cos(theta)*r, (Math.random()-0.5)*7, Math.sin(theta)*r - 3);
+      g.rotation.set(Math.random()*0.6-0.3, Math.random()*Math.PI, Math.random()*0.4-0.2);
+      g.userData = { theta:theta, r:r, spin:(Math.random()-0.5)*0.004, speed:0.0011+Math.random()*0.0016 };
+      screens.add(g);
+    }
+    scene.add(screens);
+
+    var mx = 0, my = 0;
+    window.addEventListener('mousemove', function(e){
+      mx = (e.clientX / window.innerWidth - 0.5);
+      my = (e.clientY / window.innerHeight - 0.5);
+    }, { passive:true });
+
+    var raf = null;
+    function tick(){
+      raf = null;
+      core.rotation.y += 0.004; core.rotation.x += 0.0016;
+      screens.children.forEach(function(s){
+        s.userData.theta += s.userData.speed;
+        s.position.x = Math.cos(s.userData.theta) * s.userData.r;
+        s.position.z = Math.sin(s.userData.theta) * s.userData.r - 3;
+        s.rotation.y += s.userData.spin;
+      });
+      camera.position.x += ((mx*2.2) - camera.position.x) * 0.04;
+      camera.position.y += ((-my*1.6) - camera.position.y) * 0.04;
+      camera.lookAt(0.8, 0.3, -2);
+      renderer.render(scene, camera);
+      if (!reduced && onScreen && !document.hidden) raf = requestAnimationFrame(tick);
+    }
+    function start(){ if (!raf) tick(); }
+    function stop(){ if (raf) { cancelAnimationFrame(raf); raf = null; } }
+
+    var onScreen = true;
+    renderer.render(scene, camera);          // paint one frame immediately either way
+    if (reduced) {
+      // static: no loop at all, just the one frame above
+    } else if (window.IntersectionObserver) {
+      new IntersectionObserver(function(entries){
+        onScreen = entries[0].isIntersecting;
+        if (onScreen && !document.hidden) start(); else stop();
+      }, { threshold: 0 }).observe(stage);
+      document.addEventListener('visibilitychange', function(){
+        if (!document.hidden && onScreen) start(); else stop();
+      });
+      start();
+    } else {
+      start();
+    }
+
+    window.addEventListener('resize', function(){
+      W = stage.clientWidth; H = stage.clientHeight;
+      camera.aspect = W/H; camera.updateProjectionMatrix(); renderer.setSize(W, H);
+      if (!raf) renderer.render(scene, camera);
+    });
+  }
+  } catch (e) {
+    /* no WebGL / CDN blocked — drop the 3D layer, keep the page intact */
+    if (stage) stage.style.display = 'none';
+  }
+
+  /* ---------- screenshot previews: hover to auto-scroll ---------- */
+  document.querySelectorAll('.viewport').forEach(function(vp){
+    var img = vp.querySelector('.shot');
+    if (!img) return;
+
+    function ready(){ vp.classList.add('ready'); }
+    if (img.complete && img.naturalHeight) ready();
+    img.addEventListener('load', ready);
+    img.addEventListener('error', function(){
+      vp.classList.add('ready');
+      img.style.display = 'none';
+      vp.style.background = 'var(--paper)';
+    });
+
+    if (reduced) return;
+    vp.addEventListener('mouseenter', function(){
+      if (vp.classList.contains('live')) return;   // the real site is playing
+      var over = img.offsetHeight - vp.clientHeight;
+      if (over > 0) {
+        var dur = Math.min(18, Math.max(5, over / 90));
+        img.style.transition = 'transform ' + dur + 's linear';
+        img.style.transform = 'translateY(' + (-over) + 'px)';
+      }
+    });
+    vp.addEventListener('mouseleave', function(){
+      img.style.transition = 'transform 1.2s cubic-bezier(.2,.8,.2,1)';
+      img.style.transform = 'translateY(0)';
+    });
+  });
+
+  /* ---------- LIVE EMBEDS ----------
+     None of the six send X-Frame-Options, so the frames run the actual sites —
+     real WebGL, video heroes, boot sequences, counters. Only the frames nearest
+     the viewport are mounted: six animating sites plus the hero canvas would
+     cook the GPU. Embeds are click-through until you ask to drive one.
+
+     Phones/tablets get a smaller budget on purpose: mobile Safari has a much
+     tighter per-tab memory ceiling than desktop, and this page's own hero is
+     already running a persistent WebGL scene. Auto-mounting two more
+     WebGL-heavy cross-origin sites on top of that as you flick-scroll is a
+     good way to get the tab's content killed mid-render — which looks exactly
+     like the frames "collapsing." Coarse-pointer (touch) devices: no
+     auto-mount, and only one embed live at a time, tap-to-open. */
+  var LIVE_LIMIT = touch ? 1 : 2;
+  var stages = [].slice.call(document.querySelectorAll('.viewport'));
+
+  function fit(vp, ifr){
+    if (!vp.clientWidth) return;               // not laid out yet — avoid /0
+    var s = vp.clientWidth / 1440;
+    ifr.style.transform = 'scale(' + s + ')';
+    ifr.style.height = (vp.clientHeight / s) + 'px';
+  }
+
+  function label(vp, text, off){
+    var btn = vp.closest('.frame').querySelector('[data-golive]');
+    if (!btn) return;
+    btn.textContent = text;
+    btn.classList.toggle('on', !!vp.classList.contains('interactive'));
+    btn.disabled = !!off;
+  }
+
+  function mount(vp){
+    if (vp.querySelector('iframe') || vp.dataset.blocked) return;
+    var ifr = document.createElement('iframe');
+    ifr.title = 'Live preview of ' + vp.getAttribute('data-url');
+    ifr.setAttribute('tabindex','-1');
+    ifr.setAttribute('allow','autoplay; fullscreen');
+    fit(vp, ifr);
+
+    // A cross-origin frame never exposes its document, so the only honest
+    // signal that it came up is whether it fired load.
+    var loaded = false;
+    ifr.addEventListener('load', function(){
+      loaded = true;
+      vp.classList.add('live');
+      label(vp, '● INTERACT');
+    });
+    setTimeout(function(){
+      if (loaded || !ifr.parentNode) return;
+      vp.dataset.blocked = '1';
+      unmount(vp);
+      label(vp, '● EMBED BLOCKED', true);
+    }, 10000);
+
+    label(vp, '● WAKING…');
+    ifr.src = vp.getAttribute('data-url');
+    vp.insertBefore(ifr, vp.querySelector('.overlay'));
+  }
+
+  function unmount(vp){
+    var ifr = vp.querySelector('iframe');
+    if (!ifr) return;
+    ifr.remove();                                  // stops its rAF loops outright
+    vp.classList.remove('live','interactive');
+    if (!vp.dataset.blocked) label(vp, '● GO LIVE');
+  }
+
+  document.querySelectorAll('[data-golive]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var vp = btn.closest('.frame').querySelector('.viewport');
+
+      // Never embed a live site inside a phone's tab. Each of these sites can
+      // run its own WebGL/video/audio — a cross-origin iframe means none of
+      // that is under this page's control. Stacked on top of an already
+      // memory-tight mobile Safari tab, that's what was crashing it. Send
+      // touch devices to the real site instead: full native performance, one
+      // WebGL context instead of two nested ones.
+      if (touch) { window.open(vp.getAttribute('data-url'), '_blank', 'noopener'); return; }
+
+      if (vp.dataset.blocked) return;
+      if (!vp.querySelector('iframe')) { mount(vp); return; }
+      var on = vp.classList.toggle('interactive');
+      label(vp, on ? '● RELEASE' : '● INTERACT');
+    });
+  });
+
+  // mount/unmount by how much of each frame is on screen — desktop/laptop only
+  if (!touch && !reduced && window.IntersectionObserver) {
+    var seen = [], queued = false;
+    stages.forEach(function(){ seen.push(0); });
+
+    function settle(){
+      queued = false;
+      var live = stages.filter(function(vp, i){ return seen[i] > 0.4 && !vp.dataset.blocked; })
+                       .sort(function(a, b){ return seen[stages.indexOf(b)] - seen[stages.indexOf(a)]; })
+                       .slice(0, LIVE_LIMIT);
+      stages.forEach(function(vp, i){
+        if (live.indexOf(vp) >= 0) mount(vp);
+        else if (seen[i] < 0.25) unmount(vp);
+      });
+    }
+    var vis = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ seen[stages.indexOf(en.target)] = en.intersectionRatio; });
+      if (!queued) { queued = true; requestAnimationFrame(settle); }
+    }, { threshold:[0, .15, .25, .4, .6, .8, 1] });
+    stages.forEach(function(vp){ vis.observe(vp); });
+  }
+
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.viewport iframe').forEach(function(ifr){
+      fit(ifr.parentElement, ifr);
+    });
+  });
+
+  /* ---------- tilt ---------- */
+  if (window.matchMedia('(pointer:fine)').matches && !reduced) {
+    document.querySelectorAll('[data-tilt]').forEach(function(el){
+      el.addEventListener('mousemove', function(e){
+        var b = el.getBoundingClientRect();
+        var px = (e.clientX - b.left) / b.width - 0.5;
+        var py = (e.clientY - b.top) / b.height - 0.5;
+        el.style.transform = 'perspective(1100px) rotateY(' + (px*6) + 'deg) rotateX(' + (-py*6) + 'deg) translateY(-4px)';
+        el.style.boxShadow = (10 - px*8) + 'px ' + (10 + py*6) + 'px 0 var(--ink)';
+      });
+      el.addEventListener('mouseleave', function(){ el.style.transform=''; el.style.boxShadow=''; });
+    });
+  }
+})();
+</script>
+</body>
+</html>

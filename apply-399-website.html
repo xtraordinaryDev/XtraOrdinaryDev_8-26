@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Websites for Local Businesses — $399 | X-traordinary</title>
+<meta name="description" content="Professionally designed custom websites, built in 7 days, made to turn visitors into phone calls. $399 flat. No agency retainers. You own everything.">
+<meta property="og:title" content="Custom Websites for Local Businesses — $399 | X-traordinary">
+<meta property="og:description" content="Professionally designed, built in 7 days, made to turn visitors into phone calls. $399 flat — not $7,800.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1519384879160345');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1519384879160345&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cream:#F4F1EA; --cream-2:#EDE9DF;
+  --ink:#141311; --ink-soft:#3A382F;
+  --body:#6B675C;
+  --gold:#C8952F; --gold-deep:#A87B22; --gold-tint:#F5E9CF;
+  --green:#1D9E75; --red:#C24141;
+  --paper:#FFFDF8; --line:#E2DDD0; --line-dark:#2B2A24;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --mono:"IBM Plex Mono","SF Mono",Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+::selection{background:var(--gold);color:var(--ink);}
+body{
+  background:var(--cream); color:var(--ink);
+  font-family:var(--sans); line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* film grain */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+
+/* ================= TOP BAR ================= */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(244,241,234,.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:1140px;margin:0 auto;padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-weight:700;letter-spacing:.18em;font-size:13px;
+  color:var(--ink);text-decoration:none;text-transform:uppercase;
+}
+.logo img{width:36px;height:36px;object-fit:contain;display:block;}
+.logo b{color:var(--gold-deep);}
+.top-cta{
+  font-size:13px;font-weight:600;letter-spacing:.02em;
+  color:var(--ink);text-decoration:none;
+  border:1.5px solid var(--ink);border-radius:100px;padding:10px 22px;
+  transition:all .2s ease;white-space:nowrap;
+}
+.top-cta:hover{background:var(--ink);color:var(--cream);}
+.top-cta.gold{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+.top-cta.gold:hover{background:var(--gold-deep);border-color:var(--gold-deep);color:#fff;}
+
+/* ================= HERO ================= */
+.hero{
+  padding:96px 24px 72px;text-align:center;position:relative;
+  overflow:hidden;isolation:isolate;
+  min-height:min(88vh,760px);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+}
+.hero-media{
+  position:absolute;inset:0;z-index:0;overflow:hidden;
+  pointer-events:none;
+}
+.hero-video{
+  position:absolute;top:50%;left:50%;
+  width:100%;height:100%;
+  min-width:100%;min-height:100%;
+  transform:translate(-50%,-50%);
+  object-fit:cover;object-position:center center;
+}
+.hero-tint{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(244,241,234,.78) 0%,rgba(244,241,234,.68) 45%,rgba(244,241,234,.86) 100%),
+    rgba(200,149,47,.16);
+}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:980px;margin:0 auto;}
+.hero .kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-deep);margin-bottom:32px;
+}
+.hero .kicker::before,.hero .kicker::after{
+  content:"";width:32px;height:1px;background:var(--gold);
+}
+h1{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(36px,8vw,84px);
+  line-height:1.05;letter-spacing:-.015em;
+  max-width:980px;margin:0 auto 12px;
+  text-wrap:balance;
+}
+h1 em{font-style:italic;color:var(--gold-deep);}
+h1 .strike{
+  position:relative;white-space:nowrap;color:var(--body);
+}
+h1 .strike::after{
+  content:"";position:absolute;left:-2%;right:-2%;top:54%;height:3px;
+  background:var(--red);transform:rotate(-4deg);border-radius:2px;
+}
+.hero .sub{
+  font-size:18px;color:var(--ink-soft);max-width:600px;margin:24px auto 40px;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--gold);color:var(--ink);
+  font-family:var(--sans);font-size:16px;font-weight:600;
+  padding:18px 44px;border-radius:100px;
+  border:none;cursor:pointer;text-decoration:none;
+  transition:all .2s ease;
+  box-shadow:0 8px 24px rgba(200,149,47,.28);
+}
+.btn:hover{background:var(--gold-deep);color:#fff;transform:translateY(-2px);box-shadow:0 12px 32px rgba(168,123,34,.35);}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px;}
+.btn .arrow{transition:transform .2s ease;}
+.btn:hover .arrow{transform:translateX(4px);}
+.hero .micro{font-size:13px;color:var(--ink-soft);margin-top:16px;letter-spacing:.01em;}
+
+/* ================= TICKER ================= */
+.ticker{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:16px 0;overflow:hidden;background:var(--cream-2);
+}
+.ticker-track{
+  display:flex;gap:56px;width:max-content;
+  animation:ticker 28s linear infinite;
+}
+.ticker span{
+  font-size:13px;font-weight:500;color:var(--ink-soft);
+  display:flex;align-items:center;gap:10px;white-space:nowrap;
+}
+.ticker span::before{content:"✓";color:var(--green);font-weight:700;}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ================= SECTION SHARED ================= */
+section{padding:96px 0;}
+.sec-head{text-align:center;margin-bottom:56px;}
+.sec-head .tag{
+  font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-deep);display:block;margin-bottom:16px;
+}
+h2{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(32px,4vw,52px);line-height:1.08;letter-spacing:-.01em;
+}
+h2 em{font-style:italic;color:var(--gold-deep);}
+.sec-head p{font-size:16px;color:var(--body);max-width:520px;margin:16px auto 0;}
+
+/* ================= RECEIPTS (dark section) ================= */
+.dark{
+  background:var(--ink);color:var(--cream);
+  border-radius:32px;margin:0 16px;padding:96px 24px;
+}
+.dark .sec-head .tag{color:var(--gold);}
+.dark h2{color:var(--cream);}
+.dark h2 em{color:var(--gold);}
+.dark .sec-head p{color:#A5A195;}
+.receipts{
+  display:grid;grid-template-columns:1fr 1fr;gap:32px;
+  max-width:820px;margin:0 auto;align-items:start;
+}
+.receipt{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--mono);font-size:13px;
+  padding:32px 28px 40px;position:relative;
+  box-shadow:0 24px 48px rgba(0,0,0,.4);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),96% 100%,92% calc(100% - 10px),88% 100%,84% calc(100% - 12px),80% 100%,76% calc(100% - 9px),72% 100%,68% calc(100% - 12px),64% 100%,60% calc(100% - 10px),56% 100%,52% calc(100% - 12px),48% 100%,44% calc(100% - 9px),40% 100%,36% calc(100% - 12px),32% 100%,28% calc(100% - 10px),24% 100%,20% calc(100% - 12px),16% 100%,12% calc(100% - 9px),8% 100%,4% calc(100% - 12px),0 100%);
+}
+.receipt.tilt-l{transform:rotate(-1.5deg);}
+.receipt.tilt-r{transform:rotate(1.2deg);}
+.receipt h3{
+  font-family:var(--mono);font-weight:600;font-size:14px;
+  text-align:center;letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:6px;
+}
+.receipt .stars{text-align:center;letter-spacing:.4em;color:#B8B4A6;margin-bottom:20px;font-size:11px;}
+.receipt .row{
+  display:flex;justify-content:space-between;gap:16px;
+  padding:5px 0;color:var(--ink-soft);
+}
+.receipt .row span:last-child{font-weight:500;}
+.receipt .total{
+  display:flex;justify-content:space-between;
+  border-top:1.5px dashed #C9C4B4;margin-top:16px;padding-top:16px;
+  font-weight:600;font-size:16px;
+}
+.receipt .total .bad{color:var(--red);font-size:22px;font-weight:600;}
+.receipt .total .good{color:var(--green);font-size:22px;font-weight:600;}
+.receipt .verdict{
+  margin-top:20px;font-family:var(--sans);font-size:12.5px;line-height:1.55;
+  padding:12px 14px;border-radius:8px;
+}
+.receipt .verdict.bad{background:#FBEEEE;color:#9B3535;}
+.receipt .verdict.good{background:#EAF6F1;color:#166A50;}
+.receipt.gold-r{background:var(--gold-tint);}
+.receipt .care{
+  margin-top:20px;text-align:center;font-family:var(--sans);
+  border-top:1.5px dashed #D9C89A;padding-top:18px;
+}
+.receipt .care .amt{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--gold-deep);}
+.receipt .care p{font-size:12px;color:#8A7332;margin-top:2px;}
+.dark .bottom-cta{text-align:center;margin-top:64px;}
+.dark .keep{
+  font-family:var(--serif);font-style:italic;font-size:20px;color:var(--gold);
+  display:block;margin-bottom:24px;
+}
+
+/* ================= BUILDS ================= */
+.builds{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  max-width:1000px;margin:0 auto;
+}
+.build{
+  background:var(--paper);border:1px solid var(--line);border-radius:16px;
+  overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;
+}
+.build:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(20,19,17,.1);}
+.build .shot{
+  aspect-ratio:4/3;background:linear-gradient(135deg,var(--cream-2),#E4DFD2);
+  display:flex;align-items:center;justify-content:center;
+  color:#A6A294;font-size:13px;font-family:var(--mono);
+}
+.build img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top center;display:block;
+  background:linear-gradient(135deg,var(--cream-2),#E4DFD2);
+}
+.build a.shot-link{display:block;text-decoration:none;color:inherit;}
+.build a.shot-link:focus-visible{outline:3px solid var(--gold-deep);outline-offset:2px;}
+.build .cap{
+  display:flex;align-items:baseline;gap:12px;padding:16px 18px;
+}
+.build .cap .idx{font-family:var(--mono);font-size:11px;color:var(--gold-deep);}
+.build .cap p{font-size:14px;font-weight:500;}
+.build .cap span{font-size:12px;color:var(--body);display:block;font-weight:400;}
+
+/* ================= INCLUDED ================= */
+.included-grid{
+  display:grid;grid-template-columns:1fr 1.2fr;gap:0;
+  max-width:920px;margin:0 auto;
+  background:var(--paper);border:1px solid var(--line);border-radius:24px;
+  overflow:hidden;box-shadow:0 24px 56px rgba(20,19,17,.08);
+}
+.price-block{
+  background:var(--ink);color:var(--cream);
+  padding:56px 44px;display:flex;flex-direction:column;justify-content:center;
+}
+.price-block .from{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8B877A;margin-bottom:12px;}
+.price-block .big{
+  font-family:var(--serif);font-size:88px;font-weight:600;line-height:1;color:var(--gold);
+}
+.price-block .flat{font-size:15px;color:#A5A195;margin-top:10px;}
+.price-block .own{
+  margin-top:28px;padding-top:24px;border-top:1px solid var(--line-dark);
+  font-size:13.5px;color:#C6C2B4;line-height:1.6;
+}
+.inc-list{padding:56px 48px;}
+.inc-list h3{font-family:var(--serif);font-size:22px;font-weight:600;margin-bottom:22px;}
+.inc-list ul{list-style:none;}
+.inc-list li{
+  display:flex;gap:14px;padding:9px 0;font-size:15px;color:var(--ink-soft);
+}
+.inc-list li::before{content:"✓";color:var(--green);font-weight:700;flex-shrink:0;}
+
+/* ================= STEPS ================= */
+.steps{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  max-width:1000px;margin:0 auto;position:relative;
+}
+.step{padding:0 24px;text-align:center;position:relative;}
+.step .num{
+  font-family:var(--serif);font-style:italic;font-size:15px;
+  width:52px;height:52px;border-radius:50%;
+  border:1.5px solid var(--gold);color:var(--gold-deep);
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-bottom:18px;background:var(--paper);position:relative;z-index:1;
+}
+.steps::before{
+  content:"";position:absolute;top:26px;left:12%;right:12%;height:1px;
+  background:var(--line);
+}
+.step h4{font-size:15px;font-weight:600;margin-bottom:6px;}
+.step p{font-size:13px;color:var(--body);line-height:1.5;}
+
+/* ================= CATCH ================= */
+.catch{
+  max-width:760px;margin:0 auto;text-align:center;padding:0 24px;
+}
+.catch .q{
+  font-family:var(--serif);font-style:italic;font-size:clamp(26px,3.4vw,40px);
+  font-weight:600;line-height:1.25;margin-bottom:24px;
+}
+.catch .q .mark{color:var(--gold-deep);}
+.catch p{font-size:16.5px;color:var(--body);max-width:620px;margin:0 auto;}
+.catch p b{color:var(--ink);font-weight:600;}
+
+/* ================= APPLY ================= */
+#apply{padding-bottom:120px;}
+.apply-shell{
+  max-width:680px;margin:0 auto;
+  background:var(--paper);border:1px solid var(--line);border-radius:24px;
+  padding:52px 48px;box-shadow:0 32px 72px rgba(20,19,17,.1);
+  position:relative;
+}
+.apply-shell::before{
+  content:"";position:absolute;top:0;left:48px;right:48px;height:3px;
+  background:var(--gold);border-radius:0 0 4px 4px;
+}
+.apply-shell h2{font-size:clamp(28px,3.4vw,38px);text-align:center;}
+.apply-shell .lead{
+  text-align:center;font-size:15px;color:var(--body);margin:12px 0 32px;
+}
+.apply-shell iframe{min-height:420px;}
+
+/* ================= FOOTER ================= */
+footer{
+  background:var(--ink);color:#8B877A;
+  border-radius:32px 32px 0 0;margin:0 16px;
+  padding:56px 24px 44px;
+}
+.foot-badges{
+  display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
+  padding-bottom:36px;margin-bottom:36px;border-bottom:1px solid var(--line-dark);
+}
+.foot-badges span{
+  font-size:13px;color:#C6C2B4;display:flex;align-items:center;gap:9px;
+}
+.foot-badges span::before{content:"✓";color:var(--gold);font-weight:700;}
+.foot-meta{text-align:center;font-size:12.5px;line-height:2;}
+.foot-meta a{color:#A5A195;}
+.foot-meta a:hover{color:var(--gold);}
+.foot-legal{max-width:660px;margin:20px auto 0;text-align:center;font-size:11.5px;line-height:1.7;color:#6E6A5E;}
+
+/* ================= REVEAL ================= */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .reveal{opacity:1;transform:none;transition:none;}
+  .ticker-track{animation:none;}
+  .btn:hover,.build:hover{transform:none;}
+  .hero-video,.hero-media{display:none;}
+}
+
+/* ================= MOBILE ================= */
+@media (max-width:860px){
+  section{padding:64px 0;}
+  .topbar-inner{padding:12px 16px;gap:10px;}
+  .logo{font-size:11px;letter-spacing:.12em;gap:8px;}
+  .logo img{width:30px;height:30px;}
+  .top-cta{padding:8px 14px;font-size:12px;}
+  .hero{
+    min-height:0;
+    padding:40px 18px 36px;
+    justify-content:flex-start;
+  }
+  .hero-media{inset:0;}
+  .hero-video{
+    /* Crop into the denser center of the landscape build video */
+    width:auto;height:100%;
+    min-width:140%;min-height:100%;
+    object-fit:cover;object-position:55% 40%;
+  }
+  .hero-tint{
+    background:
+      linear-gradient(180deg,rgba(244,241,234,.88) 0%,rgba(244,241,234,.78) 50%,rgba(244,241,234,.92) 100%),
+      rgba(200,149,47,.14);
+  }
+  .hero .kicker{margin-bottom:18px;font-size:10px;gap:8px;}
+  .hero .kicker::before,.hero .kicker::after{width:20px;}
+  h1{font-size:clamp(30px,9vw,42px);margin-bottom:8px;}
+  .hero .sub{font-size:15px;line-height:1.55;margin:14px auto 24px;}
+  .hero .micro{font-size:12px;line-height:1.5;margin-top:12px;}
+  .btn{width:100%;justify-content:center;min-height:52px;padding:16px 24px;font-size:15px;}
+  .dark{margin:0 10px;padding:64px 18px;border-radius:24px;}
+  .receipts{grid-template-columns:1fr;gap:36px;max-width:420px;}
+  .receipt.tilt-l,.receipt.tilt-r{transform:rotate(0);}
+  .builds{grid-template-columns:1fr;max-width:440px;}
+  .included-grid{grid-template-columns:1fr;}
+  .price-block{padding:44px 32px;text-align:center;}
+  .price-block .big{font-size:68px;}
+  .inc-list{padding:36px 28px;}
+  .steps{grid-template-columns:1fr 1fr;gap:32px 0;}
+  .steps::before{display:none;}
+  .apply-shell{padding:36px 20px;border-radius:20px;}
+  .apply-shell::before{left:20px;right:20px;}
+  .foot-badges{gap:14px;flex-direction:column;align-items:center;}
+  footer{margin:0 10px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="#top"><img src="images/logo.png" alt="X-traordinary" width="36" height="36">X-traordinary<b>.</b></a>
+    <a class="top-cta" id="topCta" href="#apply">Free Consultation</a>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-media" aria-hidden="true">
+    <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="metadata">
+      <source src="images/The_build_timelapse_A_contain.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-tint" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="kicker">For local business owners</span>
+    <h1>A custom website that <em>wins you customers.</em><br>$399. Not <span class="strike">$7,800</span>.</h1>
+    <p class="sub">Professionally designed, built in 7 days, and made to turn visitors into phone calls. No agency retainers. No surprise invoices. You own everything.</p>
+    <a class="btn" href="#apply">Get My $399 Website <span class="arrow">→</span></a>
+    <p class="micro">7-day delivery&ensp;·&ensp;You own everything&ensp;·&ensp;No monthly contract required</p>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Live in 7 days</span><span>$399 flat — $0 hidden fees</span><span>50+ sites built</span><span>Custom design, no templates</span><span>You own it outright</span><span>US-based</span>
+    <span>Live in 7 days</span><span>$399 flat — $0 hidden fees</span><span>50+ sites built</span><span>Custom design, no templates</span><span>You own it outright</span><span>US-based</span>
+  </div>
+</div>
+
+<section>
+  <div class="dark reveal">
+    <div class="sec-head">
+      <span class="tag">The math</span>
+      <h2>What a website costs <em>in 2026.</em></h2>
+      <p>Same five pages. Same custom design. Very different receipts.</p>
+    </div>
+    <div class="receipts">
+      <div class="receipt tilt-l">
+        <h3>Big Web Agency</h3>
+        <div class="stars">**********</div>
+        <div class="row"><span>WEBSITE (5 PAGES)</span><span>$5,000</span></div>
+        <div class="row"><span>DISCOVERY CALL</span><span>$450</span></div>
+        <div class="row"><span>MOOD BOARD</span><span>$300</span></div>
+        <div class="row"><span>LOGO BIGGER</span><span>$400</span></div>
+        <div class="row"><span>LOGO SMALLER</span><span>$400</span></div>
+        <div class="row"><span>EMAIL REPLY ×3</span><span>$450</span></div>
+        <div class="row"><span>REVISION FEE</span><span>$350</span></div>
+        <div class="row"><span>RUSH FEE (WK 12)</span><span>$200</span></div>
+        <div class="row"><span>ALIGNMENT</span><span>$250</span></div>
+        <div class="total"><span>TOTAL</span><span class="bad">$7,800</span></div>
+        <div class="verdict bad">✕&ensp;Expensive. Hidden fees. Slow. Out of your control.</div>
+      </div>
+      <div class="receipt gold-r tilt-r">
+        <h3>X-traordinary</h3>
+        <div class="stars">**********</div>
+        <div class="row"><span>YOUR NEW WEBSITE</span><span>$399</span></div>
+        <div class="row"><span>HIDDEN FEES</span><span>$0</span></div>
+        <div class="total"><span>TOTAL</span><span class="good">$399</span></div>
+        <div class="verdict good">✓&ensp;Affordable. Transparent. Fast. You're in control.</div>
+        <div class="care">
+          <span class="amt">$149/mo</span>
+          <p>optional care plan — hosting, edits &amp; a human included. Month-to-month.</p>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-cta">
+      <span class="keep">Keep your $7,401 — get the website.</span>
+      <a class="btn" href="#apply">Book Your Free Call <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Recent builds</span>
+      <h2>Custom sites, built around <em>each business.</em></h2>
+    </div>
+    <div class="builds">
+      <div class="build">
+        <a class="shot-link" href="https://trk-contracting.com/index.html" target="_blank" rel="noopener noreferrer">
+          <img src="images/trk-contracting.com_index.html.png" alt="Website built for THE R3D KEY CONTRACTING — Twin Cities remodeler" width="400" height="300" loading="lazy">
+          <div class="cap"><span class="idx">01</span><p>THE R3D KEY CONTRACTING<span>Twin Cities remodeling</span></p></div>
+        </a>
+      </div>
+      <div class="build">
+        <a class="shot-link" href="https://low-fuel.com/" target="_blank" rel="noopener noreferrer">
+          <img src="images/low-fuel.com_.png" alt="Website built for Low Fuel — on-demand fuel delivery" width="400" height="300" loading="lazy">
+          <div class="cap"><span class="idx">02</span><p>Low Fuel<span>Fuel delivery</span></p></div>
+        </a>
+      </div>
+      <div class="build">
+        <a class="shot-link" href="https://platesandplaymakers.com/" target="_blank" rel="noopener noreferrer">
+          <img src="images/platesandplaymakers.com_.png" alt="Website built for Plates &amp; Playmakers — Minneapolis charity event" width="400" height="300" loading="lazy">
+          <div class="cap"><span class="idx">03</span><p>Plates &amp; Playmakers<span>Charity event</span></p></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">The deal</span>
+      <h2>Everything included. <em>One price.</em></h2>
+    </div>
+    <div class="included-grid">
+      <div class="price-block">
+        <span class="from">One-time</span>
+        <span class="big">$399</span>
+        <span class="flat">flat. That's the whole invoice.</span>
+        <p class="own">You own the site, the domain, and everything on it. No retainer required — the optional care plan is month-to-month, cancel anytime.</p>
+      </div>
+      <div class="inc-list">
+        <h3>What you get</h3>
+        <ul>
+          <li>Up to 5 custom-designed pages</li>
+          <li>Mobile-optimized — where your customers actually are</li>
+          <li>Contact form + click-to-call</li>
+          <li>Basic SEO setup</li>
+          <li>Google Business Profile connection</li>
+          <li>1 round of revisions</li>
+          <li>Live in 7 days</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">The process</span>
+      <h2>Live in <em>four steps.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="num">01</span><h4>Claim your spot</h4><p>60-second application below.</p></div>
+      <div class="step"><span class="num">02</span><h4>Kickoff call</h4><p>Free 15 minutes on your business.</p></div>
+      <div class="step"><span class="num">03</span><h4>We build</h4><p>You review. One revision round.</p></div>
+      <div class="step"><span class="num">04</span><h4>You're live</h4><p>In 7 days. You own it all.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="catch">
+    <p class="q"><span class="mark">"</span>What's the catch?<span class="mark">"</span></p>
+    <p>There isn't one. I don't carry an agency's office, account managers, or ad budget — so you don't pay for them. <b>I build fast, I build well, and most clients come back for more work.</b> That's the whole model.</p>
+  </div>
+</section>
+
+<section id="apply" class="reveal">
+  <div class="wrap">
+    <div class="apply-shell">
+      <h2>Claim your <em>$399</em> website.</h2>
+      <p class="lead">Takes 60 seconds. Next step: pick a time for your free 15-min kickoff call.</p>
+      <iframe src="https://api.leadconnectorhq.com/widget/survey/aLpFn8bHNNWIjqbZUBRG" style="border:none;width:100%;" scrolling="no" id="aLpFn8bHNNWIjqbZUBRG" title="$399 website application survey"></iframe>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      <!-- After submit: set GHL survey On Submit → Redirect URL to
+           https://x-traordinarydev.com/book-redirect.html
+           (that page breaks out of the iframe → https://x-traordinarydev.com/book-8753) -->
+      <p class="lead" style="margin:20px 0 0;font-size:13px;">Already applied? <a href="https://x-traordinarydev.com/book-8753" target="_top" rel="noopener">Book your consultation →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-badges">
+    <span>Transparent pricing</span>
+    <span>No long-term contracts</span>
+    <span>US-based team</span>
+    <span>Trusted by businesses across industries</span>
+  </div>
+  <div class="foot-meta">
+    <p>© 2026 X-traordinary Development LLC · 251 NE 20th St, Miami, Florida</p>
+    <p><a href="https://x-traordinarydev.com/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://x-traordinarydev.com/terms">Terms of Service</a></p>
+  </div>
+  <p class="foot-legal">X-traordinary Development LLC provides web design and development services. Results such as delivery timelines assume timely client feedback. This site is not part of the Facebook website or Facebook Inc., and is not endorsed by Facebook in any way.</p>
+</footer>
+
+<script>
+(function(){
+  /* scroll reveal */
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:0.1});
+    els.forEach(function(e){io.observe(e);});
+  }else{
+    els.forEach(function(e){e.classList.add('in');});
+  }
+  /* topbar CTA swap after hero */
+  var cta=document.getElementById('topCta');
+  var hero=document.querySelector('.hero');
+  if(cta&&hero&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      var past=!entries[0].isIntersecting;
+      cta.classList.toggle('gold',past);
+      cta.textContent=past?'Get My $399 Website →':'Free Consultation';
+    },{threshold:0}).observe(hero);
+  }
+})();
+</script>
+
+</body>
+</html>

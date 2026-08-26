@@ -1,0 +1,22 @@
+# Origin cache headers. Cloudflare currently caches HTML for 1 year
+# (max-age=31536000) which hides deploys until a purge. After uploading
+# this file, purge the Cloudflare cache and set Browser Cache TTL to
+# "Respect Existing Headers".
+
+<IfModule mod_headers.c>
+  # HTML/PHP: revalidate on every request so legal/contact pages update immediately
+  <FilesMatch "\.(html?|php)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+    Header unset Expires
+  </FilesMatch>
+
+  # CSS/JS: 1 hour, then revalidate
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+
+  # Images/fonts: 7 days
+  <FilesMatch "\.(ico|jpe?g|png|gif|webp|svg|woff2?)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+</IfModule>
