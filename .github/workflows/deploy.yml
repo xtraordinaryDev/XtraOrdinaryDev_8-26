@@ -1,0 +1,64 @@
+# Deploys the site to the web host over FTP/FTPS whenever main changes (including when a blog
+# draft PR is merged). This site is Apache/PHP behind Cloudflare, not GitHub Pages, so a push
+# alone does not publish anything – this job does.
+#
+# Setup (one time):
+#   Repo Settings -> Secrets and variables -> Actions
+#     Secrets:   FTP_SERVER (e.g. ftp.yourhost.com), FTP_USERNAME, FTP_PASSWORD
+#                CLOUDFLARE_ZONE_ID, CLOUDFLARE_API_TOKEN   (optional – purges the CDN cache after deploy)
+#     Variables: DEPLOY_ENABLED = true        (the job is skipped until this is set)
+#                FTP_SERVER_DIR = /public_html/   (remote folder the site lives in; default shown)
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '.github/**'
+      - 'tools/**'
+      - 'SEO-PLAYBOOK.md'
+      - 'package*.json'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ vars.DEPLOY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload changed files over FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          server-dir: ${{ vars.FTP_SERVER_DIR || '/public_html/' }}
+          local-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            .github/**
+            tools/**
+            package.json
+            package-lock.json
+            SEO-PLAYBOOK.md
+            blog/posts.json
+            blog/content/**
+            images/12xtraherosection.mp4
+            images/xavierthurman.mp4
+
+      - name: Purge Cloudflare cache
+        if: ${{ secrets.CLOUDFLARE_ZONE_ID != '' && secrets.CLOUDFLARE_API_TOKEN != '' }}
+        run: |
+          curl -fsS -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}'

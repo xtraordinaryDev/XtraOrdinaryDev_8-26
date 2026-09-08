@@ -1,0 +1,83 @@
+# Drafts one blog post a week with Claude and opens a pull request for review.
+# Nothing is published until a human merges the PR. Merge = publish (see deploy.yml).
+#
+# Setup (one time):
+#   1. Repo Settings -> Secrets and variables -> Actions -> New repository secret:
+#        ANTHROPIC_API_KEY = your Anthropic API key
+#   2. Repo Settings -> Actions -> General -> Workflow permissions:
+#        "Read and write permissions" + tick "Allow GitHub Actions to create and approve pull requests"
+#
+# Run it on demand: Actions tab -> "Weekly blog post draft" -> Run workflow (optionally with a topic).
+name: Weekly blog post draft
+
+on:
+  schedule:
+    # Every Monday 14:00 UTC = 9:00 AM Central (CDT) / 8:00 AM (CST)
+    - cron: '0 14 * * 1'
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Topic to write about (leave blank to take the next line of tools/topics.txt)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: weekly-blog-post
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Generate draft with Claude
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "${{ inputs.topic }}" ]; then
+            node tools/generate-post.mjs --topic "${{ inputs.topic }}"
+          else
+            node tools/generate-post.mjs
+          fi
+
+      - name: Read PR details
+        id: meta
+        run: |
+          TITLE=$(grep -m1 '^## New blog post draft: ' blog-draft-summary.md | sed 's/^## New blog post draft: //')
+          echo "title=$TITLE" >> "$GITHUB_OUTPUT"
+          echo "date=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: blog/draft-${{ steps.meta.outputs.date }}
+          delete-branch: true
+          commit-message: 'blog: draft "${{ steps.meta.outputs.title }}"'
+          title: 'Blog draft: ${{ steps.meta.outputs.title }}'
+          body-path: blog-draft-summary.md
+          labels: blog, needs-review
+          add-paths: |
+            blog/**
+            sitemap.xml
+            tools/topics.txt
+
+      - name: Keep the rejected draft for debugging
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rejected-draft
+          path: blog-draft-rejected.json
+          if-no-files-found: ignore

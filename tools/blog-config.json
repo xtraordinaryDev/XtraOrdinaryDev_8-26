@@ -1,0 +1,41 @@
+{
+  "business": {
+    "name": "X-Traordinary Development",
+    "url": "https://x-traordinarydevelopment.com",
+    "author": "Xavier Thurman",
+    "location": "Minneapolis, MN (also serving Miami, FL and clients across the US)",
+    "description": "A Black-owned custom software and web development studio. We hand-code websites (no page builders), build web applications, internal tools, customer portals, and AI systems (.NET, React/Next.js, Angular, Python), and take over/modernize existing codebases. Fixed-price proposals, clients own their code."
+  },
+  "audience": "Owners and operators of small and mid-size businesses and nonprofits – contractors, clinics, professional services, restaurants, event organizers, B2B companies – who are deciding about a website, a software project, or AI, and want a straight answer without jargon.",
+  "tone": "Plain English, direct, specific, warm but not salesy. Short paragraphs. Concrete examples. Honest about trade-offs, including when the answer is 'you don't need us'. Never hype, never clickbait, no exclamation points.",
+  "approvedFacts": [
+    "Based in Minneapolis, MN; also serves Miami, FL; works remotely nationwide.",
+    "Black-owned business rooted in the Minneapolis community.",
+    "Websites are hand-coded – no templates, no page builders. Clients own the code, content, and domain.",
+    "Every project is quoted as a fixed price with a written scope before work starts.",
+    "Stack: .NET/C#, React/Next.js, Angular, Python, SQL Server/PostgreSQL, Azure/AWS/Vercel.",
+    "Enterprise engineering experience on internal applications at U.S. Bank and CHS Inc.",
+    "Built FundStart AI, a custom AI/RAG research platform for the AEC industry.",
+    "Built GridLink, a full-stack procurement platform for enterprise fuel buying.",
+    "Live client sites: Works of Heart (worksofheart.us – gala & art auction for Saint John's Abbey), The R3D Key (trk-contracting.com – Minnesota general contractor), Plates & Playmakers (platesandplaymakers.com – Minneapolis charity gala), Low Fuel (low-fuel.com – mobile fueling company), VSC Peptides (research peptide e-commerce)."
+  ],
+  "neverClaim": [
+    "Do not state any of our prices, price ranges, hourly rates, or timelines as facts. Market ranges attributed to 'typical' industry pricing are fine; our own pricing is not.",
+    "Do not invent statistics, percentages, survey results, or study citations. If a number is needed, phrase it as a general observation without a figure.",
+    "Do not name clients, awards, certifications, partners, or team members other than those in approvedFacts.",
+    "Do not make guarantees about rankings, revenue, or results.",
+    "Do not mention competitors by name."
+  ],
+  "internalLinks": [
+    { "href": "../web-design-minneapolis.html", "label": "Minneapolis web design", "about": "web design & development for Twin Cities businesses" },
+    { "href": "../web-design-miami.html", "label": "Miami web design", "about": "web design for South Florida businesses, bilingual-ready" },
+    { "href": "../custom-software-development-minneapolis.html", "label": "custom software development in Minneapolis", "about": "web apps, internal tools, portals, AI systems" },
+    { "href": "../website-redesign.html", "label": "website redesign service", "about": "SEO-safe rebuilds of slow/dated sites" },
+    { "href": "../websites.html", "label": "custom websites", "about": "overview of our website service" },
+    { "href": "../services.html", "label": "development services", "about": "full list of services" },
+    { "href": "../previous-work.html", "label": "previous work", "about": "portfolio of live sites and products" },
+    { "href": "../contact.html", "label": "contact us", "about": "free quote / start a conversation" }
+  ],
+  "targetWords": { "min": 900, "max": 1500 },
+  "model": "claude-opus-5"
+}

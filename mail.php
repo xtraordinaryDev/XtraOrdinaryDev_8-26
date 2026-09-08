@@ -1,6 +1,6 @@
 <?php
 
-$to = "xtraordinaryDev@outlook.com";
+$to = "xavier.thurman@x-traordinarydevelopment.com";
 
 
 $fname = $_POST["fname"];
@@ -32,7 +32,7 @@ $msg .= "SMS Consent Language: ".$sms_consent_language."<br>";
 
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: xtraordinaryDev@outlook.com\r\n";
+$headers .= "From: xavier.thurman@x-traordinarydevelopment.com\r\n";
 $headers .= "Reply-To: ".$email."\r\n";
 
 $mailSent = mail($to, $subject, $msg, $headers);

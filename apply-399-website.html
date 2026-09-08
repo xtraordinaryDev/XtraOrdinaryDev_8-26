@@ -3,7 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics 4 (Consent Mode v2). Analytics is on unless the visitor rejected it on cookie-settings.html. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  (function () {
+    var analytics = "granted";
+    try { var p = JSON.parse(localStorage.getItem('cookiePreferences') || 'null'); if (p && p.analytics === false) analytics = 'denied'; } catch (e) {}
+    gtag('consent', 'default', { analytics_storage: analytics, ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+  })();
+  gtag('js', new Date());
+  gtag('config', 'G-QTZ0S4RLHH');
+  // Conversions: phone taps and email clicks anywhere on the page
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+    if (a) gtag('event', 'contact_click', { method: a.getAttribute('href').indexOf('tel:') === 0 ? 'phone' : 'email', link_url: a.getAttribute('href') });
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QTZ0S4RLHH"></script>
 <title>Custom Websites for Local Businesses — $399 | X-traordinary</title>
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://x-traordinarydevelopment.com/apply-399-website.html">
+<meta property="og:url" content="https://x-traordinarydevelopment.com/apply-399-website.html">
+<meta property="og:image" content="https://x-traordinarydevelopment.com/images/logo.png">
+<meta property="og:site_name" content="X-Traordinary Development">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Custom Websites for Local Businesses — $399 | X-traordinary">
+<meta name="twitter:description" content="Professionally designed custom websites, built in 7 days, made to turn visitors into phone calls. $399 flat. No agency retainers. You own everything.">
+<meta name="twitter:image" content="https://x-traordinarydevelopment.com/images/logo.png">
 <meta name="description" content="Professionally designed custom websites, built in 7 days, made to turn visitors into phone calls. $399 flat. No agency retainers. You own everything.">
 <meta property="og:title" content="Custom Websites for Local Businesses — $399 | X-traordinary">
 <meta property="og:description" content="Professionally designed, built in 7 days, made to turn visitors into phone calls. $399 flat — not $7,800.">
@@ -25,7 +52,7 @@ fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1519384879160345&ev=PageView&noscript=1"
-/></noscript>
+/ alt=""></noscript>
 <!-- End Meta Pixel -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -509,19 +536,19 @@ footer{
     <div class="builds">
       <div class="build">
         <a class="shot-link" href="https://trk-contracting.com/index.html" target="_blank" rel="noopener noreferrer">
-          <img src="images/trk-contracting.com_index.html.png" alt="Website built for THE R3D KEY CONTRACTING — Twin Cities remodeler" width="400" height="300" loading="lazy">
+          <img src="images/trk-contracting.com_index.html.webp" alt="Website built for THE R3D KEY CONTRACTING — Twin Cities remodeler" width="400" height="300" loading="lazy">
           <div class="cap"><span class="idx">01</span><p>THE R3D KEY CONTRACTING<span>Twin Cities remodeling</span></p></div>
         </a>
       </div>
       <div class="build">
         <a class="shot-link" href="https://low-fuel.com/" target="_blank" rel="noopener noreferrer">
-          <img src="images/low-fuel.com_.png" alt="Website built for Low Fuel — on-demand fuel delivery" width="400" height="300" loading="lazy">
+          <img src="images/low-fuel.com_.webp" alt="Website built for Low Fuel — on-demand fuel delivery" width="400" height="300" loading="lazy">
           <div class="cap"><span class="idx">02</span><p>Low Fuel<span>Fuel delivery</span></p></div>
         </a>
       </div>
       <div class="build">
         <a class="shot-link" href="https://platesandplaymakers.com/" target="_blank" rel="noopener noreferrer">
-          <img src="images/platesandplaymakers.com_.png" alt="Website built for Plates &amp; Playmakers — Minneapolis charity event" width="400" height="300" loading="lazy">
+          <img src="images/platesandplaymakers.com_.webp" alt="Website built for Plates &amp; Playmakers — Minneapolis charity event" width="400" height="300" loading="lazy">
           <div class="cap"><span class="idx">03</span><p>Plates &amp; Playmakers<span>Charity event</span></p></div>
         </a>
       </div>

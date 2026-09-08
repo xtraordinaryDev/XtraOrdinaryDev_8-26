@@ -1,3 +1,30 @@
+# ---- Canonical URL redirects (SEO) ----------------------------------------
+# One canonical origin: https, no www, no /index.html. The X-Forwarded-Proto /
+# CF-Visitor checks keep this from looping behind Cloudflare Flexible SSL, where
+# the origin only ever sees plain HTTP.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # http -> https
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteCond %{HTTP:CF-Visitor} !"scheme":"https"
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # www -> non-www
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # /index.html -> /
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [L,R=301]
+</IfModule>
+
+# ---- Compression (Cloudflare also compresses at the edge) -----------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/javascript application/json image/svg+xml
+</IfModule>
+
 # Origin cache headers. Cloudflare currently caches HTML for 1 year
 # (max-age=31536000) which hides deploys until a purge. After uploading
 # this file, purge the Cloudflare cache and set Browser Cache TTL to

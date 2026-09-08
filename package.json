@@ -1,0 +1,17 @@
+{
+  "name": "xtraordinary-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "x-traordinarydevelopment.com — static site plus blog tooling",
+  "type": "module",
+  "scripts": {
+    "blog:build": "node tools/build-blog.mjs",
+    "blog:generate": "node tools/generate-post.mjs",
+    "blog:generate:dry": "node tools/generate-post.mjs --dry-run"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest",
+    "zod": "^4.1.0"
+  }
+}
