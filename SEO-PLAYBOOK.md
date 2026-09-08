@@ -45,18 +45,27 @@ in 6–12 weeks for local terms once the Google Business Profile and backlinks i
 - **Hero poster images** generated for the three video heroes (the home page referenced a poster
   that did not exist) and preloaded — this is what Google measures as LCP on those pages.
 
-## 2. Deploy checklist (do this first)
+## 2. Hosting & deploy (GitHub Pages) — read this first
 
-1. Upload everything, including `robots.txt`, `sitemap.xml`, `.htaccess`, `images/*-poster.jpg`.
-2. Cloudflare → Caching → **Purge Everything** (the old cache rules held HTML for a year).
-3. Verify in a browser:
-   - `https://x-traordinarydevelopment.com/robots.txt` and `/sitemap.xml` load.
-   - `http://www.x-traordinarydevelopment.com/index.html` → 301 → `https://x-traordinarydevelopment.com/`
-     (if it loops, Cloudflare SSL mode is "Flexible": switch it to **Full (strict)** — do this anyway).
-   - View source on `/websites.html`: title, canonical, JSON-LD present.
-4. Test rich results: https://search.google.com/test/rich-results on `/`, `/websites.html`,
-   `/services.html`. All should pass with FAQ + Breadcrumb + LocalBusiness detected.
-5. Delete the draft HTML files from the server (see §1).
+The site is served by **GitHub Pages** (custom domain `x-traordinarydevelopment.com`, behind
+Cloudflare). `static.yml` deploys `main` on every push, so **merging = publishing**. Consequences:
+
+- **URGENT – contact form.** GitHub Pages cannot run PHP, so `mail.php` stopped working the moment
+  the site moved (visitors were shown raw PHP source as the "success" message). The form now posts
+  to **Web3Forms** (free, no server). To turn it on: go to https://web3forms.com, enter
+  `xavier.thurman@x-traordinarydevelopment.com`, copy the access key from the email, and paste it
+  into `contact.html` replacing `YOUR_WEB3FORMS_ACCESS_KEY` (line ~248). Until then the form shows
+  "not configured yet – please email us". Test with a real submission after.
+- `.htaccess` is ignored on Pages. Do the redirects in Cloudflare instead: **Rules → Redirect
+  Rules**: `www.x-traordinarydevelopment.com/*` → `https://x-traordinarydevelopment.com/${1}` (301);
+  SSL/TLS → **Full**; **Always Use HTTPS** on. In GitHub → Settings → Pages tick **Enforce HTTPS**.
+- Cloudflare → Caching → **Purge Everything** after this deploy (old rules cached HTML for a year).
+- Verify: `/robots.txt`, `/sitemap.xml`, `/previous-work.html`, `/blog/` load; view-source on
+  `/websites.html` shows the JSON-LD. Test rich results: https://search.google.com/test/rich-results.
+- The old draft pages (`old*.html`, `2.html` …) are still deployed with `noindex`. Delete them from
+  the repo when convenient – a 404 drops out of Google faster.
+- Everything in the repo is public and deployed, including this file and `tools/`. Nothing
+  sensitive lives there (the API key is a GitHub secret), but keep it that way.
 
 ## 3. Week 1 — accounts and measurement (no ranking without these)
 
@@ -216,9 +225,7 @@ Nothing publishes until you merge. Cost is roughly $0.10–0.15 per post.
 - **Editorial calendar:** add lines to `tools/topics.txt` any time. When it is empty, Claude proposes
   a non-overlapping topic.
 - **Company facts / tone / what never to claim:** edit `tools/blog-config.json`.
-- **Deploy:** `.github/workflows/deploy.yml` uploads the site over FTPS when main changes, but it
-  is **off until** you add the FTP secrets and set the repo variable `DEPLOY_ENABLED=true`
-  (instructions at the top of the file). Until then, merge the PR and upload as you do today.
+- **Deploy:** merging the PR triggers `static.yml`, which republishes the site on GitHub Pages within a minute or two.
 - **Manual posts:** add `blog/content/<slug>.html` + an entry in `blog/posts.json`, run
   `npm run blog:build`. Never edit `blog/*.html` directly – they are generated.
 - **Rotate the API key** any time from the Anthropic Console, then

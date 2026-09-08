@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /mail.php
 
 # Old drafts carry <meta name="robots" content="noindex"> instead of a Disallow here,
 # so Google can still crawl them once and drop them from the index.

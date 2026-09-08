@@ -1,5 +1,5 @@
 # Drafts one blog post a week with Claude and opens a pull request for review.
-# Nothing is published until a human merges the PR. Merge = publish (see deploy.yml).
+# Nothing is published until a human merges the PR. Merge = publish (static.yml deploys to GitHub Pages).
 #
 # Setup (one time):
 #   1. Repo Settings -> Secrets and variables -> Actions -> New repository secret:

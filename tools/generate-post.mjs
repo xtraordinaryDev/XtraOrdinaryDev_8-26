@@ -178,7 +178,7 @@ const summary = `## New blog post draft: ${post.h1}
 - [ ] Internal links point to the right pages
 - [ ] Title and meta description read well in a Google result
 
-Merging this PR publishes the post (on the next deploy). Closing it discards the draft; the topic is removed from \`tools/topics.txt\` in this PR, so re-add it if you want it retried.
+Merging this PR publishes the post – GitHub Pages redeploys automatically. Closing it discards the draft; the topic is removed from \`tools/topics.txt\` in this PR, so re-add it if you want it retried.
 `;
 fs.writeFileSync(path.join(ROOT, 'blog-draft-summary.md'), summary);
 console.log('\n' + summary);
