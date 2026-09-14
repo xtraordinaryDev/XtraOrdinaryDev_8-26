@@ -1,5 +1,23 @@
 [
   {
+    "slug": "how-long-does-custom-software-take-to-build",
+    "title": "How Long Does Custom Software Take to Build? | X-Traordinary",
+    "h1": "How Long Does Custom Software Take to Build?",
+    "kicker": "Planning Guide",
+    "description": "A straight answer on custom software timelines: what a realistic first release looks like, which phases eat the most time, and what actually speeds a project up.",
+    "excerpt": "A realistic look at custom software timelines: what belongs in a first release, which phases take the longest, and the decisions that quietly add weeks to a build.",
+    "date": "2026-09-14",
+    "readMinutes": 7,
+    "image": "https://x-traordinarydevelopment.com/images/logo.png",
+    "cta": {
+      "h2": "Want a real timeline for your project?",
+      "text": "Tell us the process you are trying to fix and we will scope it honestly — including whether a smaller first release gets you there sooner. Every project comes with a fixed price and a written scope before work starts.",
+      "button": "Get a free quote",
+      "href": "../contact.html"
+    },
+    "generated": true
+  },
+  {
     "slug": "do-you-need-a-web-developer-or-a-web-designer",
     "title": "Web Developer or Web Designer: Which Do You Need? | X-Traordinary",
     "h1": "Do You Need a Web Developer or a Web Designer?",

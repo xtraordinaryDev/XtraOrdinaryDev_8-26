@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://x-traordinarydevelopment.com/blog/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -117,6 +117,12 @@
   <url>
     <loc>https://x-traordinarydevelopment.com/blog/do-you-need-a-web-developer-or-a-web-designer.html</loc>
     <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://x-traordinarydevelopment.com/blog/how-long-does-custom-software-take-to-build.html</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
