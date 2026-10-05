@@ -24,12 +24,12 @@
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="shortcut icon" type="image/png" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
-    <title>Audit Request Received | X-Traordinary Development</title>
-    <meta name="description" content="Your free website and Google audit request was received.">
+    <title>Application Received | X-Traordinary Development</title>
+    <meta name="description" content="Your application was received. Taking you to the booking calendar.">
     <meta name="robots" content="noindex, follow">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Audit Request Received | X-Traordinary Development">
-    <meta property="og:description" content="Your free website and Google audit request was received.">
+    <meta property="og:title" content="Application Received | X-Traordinary Development">
+    <meta property="og:description" content="Your application was received. Taking you to the booking calendar.">
     <meta property="og:image" content="https://x-traordinarydevelopment.com/images/og-card.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,14 +94,11 @@
         !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '742033115386019');
         fbq('track', 'PageView');
-        fbq('track', 'Lead', { content_name: 'Free website audit' });
+        fbq('track', 'Lead', { content_name: 'Free website audit application' });
       })();
     </script>
   </head>
   <body>
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="cursor-ring" aria-hidden="true"></div>
-
     <header class="lp-top">
       <div class="container">
         <a href="index.html"><img src="images/logo.png" alt="X-Traordinary Development logo" width="82" height="50"></a>
@@ -112,11 +109,10 @@
     <main id="main">
     <section class="lp-thanks">
       <div class="container">
-        <p class="lp-kicker">Request received</p>
-        <h1 class="mb-3">Your audit is on the way</h1>
-        <p class="lp-lead mx-auto mb-4">We'll email your video within 2 business days. Check your spam folder if you don't see it, and feel free to call if you'd rather talk now.</p>
-        <a class="btn_primary me-2 mb-3" href="tel:+17637424823"><i class="bi bi-telephone"></i> 763-742-4823</a>
-        <a class="btn_primary mb-3" href="previous-work.html">See our previous work</a>
+        <p class="lp-kicker">Application received</p>
+        <h1 class="mb-3">One more step: pick your time</h1>
+        <p class="lp-lead mx-auto mb-4">Taking you to the calendar now.</p>
+        <a class="btn_primary" href="https://x-traordinarydev.com/book-8753" target="_top" rel="noopener">Open the calendar</a>
       </div>
     </section>
     </main>
@@ -129,9 +125,10 @@
     </footer>
 
     <script>
-      // One lead per visit to this page
-      if (window.gtag) gtag('event', 'generate_lead', { method: 'free_audit_form' });
+      // The GoHighLevel survey redirects here after submit (often inside its iframe).
+      // Count the application on this domain, then send the whole window to the booking page.
+      if (window.gtag) gtag('event', 'generate_lead', { method: 'ghl_application' });
+      setTimeout(function () { (window.top || window).location.href = 'https://x-traordinarydev.com/book-8753'; }, 900);
     </script>
-    <script src="js/cursor.js"></script>
   </body>
 </html>
