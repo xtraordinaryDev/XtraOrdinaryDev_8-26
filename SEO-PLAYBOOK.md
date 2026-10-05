@@ -230,3 +230,23 @@ Nothing publishes until you merge. Cost is roughly $0.10–0.15 per post.
   `npm run blog:build`. Never edit `blog/*.html` directly – they are generated.
 - **Rotate the API key** any time from the Anthropic Console, then
   `gh secret set ANTHROPIC_API_KEY` (or Settings → Secrets → Actions).
+
+## 11. Pass 2 (2026-10-04)
+
+Lighthouse SEO was already 100 on every page tested, so this pass targeted speed, snippets and structure.
+
+- **Speed:** removed Font Awesome (unused) and jQuery (now only on contact.html); fonts trimmed to the
+  weights in use and loaded without blocking render, same for the icon font; Intercom loads on first
+  interaction or after 6s; home hero video starts after page load so it does not compete with the poster.
+- **Snippets:** titles <= 60 and descriptions <= 160 characters on home, services, about, websites and
+  the landing pages, so Google shows them whole.
+- **Structure:** `<main>` landmark and labelled social links everywhere; home page schema is now a graph
+  (LocalBusiness/ProfessionalService + WebSite + WebPage, with founder and knowsAbout); home page links to
+  the two main service pages and shows the three newest blog posts (kept current by `npm run blog:build`).
+- **Blog:** related posts under every article, RSS feed at `/blog/feed.xml`.
+- **New files:** `404.html` (branded, noindex), `llms.txt` (site summary for AI assistants),
+  `images/og-card.jpg` (1200x630 social preview, replaces the 82x50 logo).
+- **Cleanup:** old draft pages deleted (`2.html`, `4.html`, `index5.html`, `index_old.html`, `old*.html`,
+  `zztest99.html`); a dead URL removed from the sitemap.
+- **Weekly agent:** skips and posts a reminder while a draft PR is still open, instead of redrafting
+  the same topic.

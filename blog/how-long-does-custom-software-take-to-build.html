@@ -38,12 +38,17 @@
     <meta name="twitter:title" content="How Long Does Custom Software Take to Build? | X-Traordinary">
     <meta name="twitter:description" content="A plain-English look at how long a first release of custom software really takes, what drives the schedule, and where projects quietly lose weeks along the way.">
     <meta name="twitter:image" content="https://x-traordinarydevelopment.com/images/logo.png">
+    <link rel="alternate" type="application/rss+xml" title="X-Traordinary Development Blog" href="https://x-traordinarydevelopment.com/blog/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Roboto:wght@400..700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Roboto:wght@400..700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Roboto:wght@400..700&display=swap"></noscript>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"></noscript>
+    <link rel="preload" as="image" href="../images/previous-work-hero-poster.jpg" fetchpriority="high">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script
       defer
@@ -170,12 +175,33 @@
       </div>
     </header>
 
-
+    <main id="main">
     <!-- Article -->
     <article class="post">
       <div class="container section-spacing-lg">
         <div class="post-body reveal-on-scroll">
 <p class="lead">For most small and mid-size businesses, a first release of custom software lands somewhere between a couple of months and most of a year. A single-purpose internal tool sits at the short end. A customer portal with logins, payments, and an integration into software you already run sits in the middle. A platform that replaces how your whole operation works sits at the long end. The honest answer is that the calendar is set less by how fast anyone types and more by how narrow the first version is and how quickly your side can make decisions.</p><p>We write that plainly because "how long will it take" is usually the second question an owner asks, right after cost. And the answer people get is often either a number pulled out of the air or a shrug. Neither helps you plan.</p><h2>First, agree on what "done" means</h2><p>The biggest source of blown timelines is not engineering. It is a fuzzy finish line.</p><p>A <strong>first release</strong> is the smallest version of the software that real people can use to do real work. It is not a demo. It is not every feature on the wish list. It is the version where the dispatcher stops using the whiteboard, or the client stops emailing PDFs, or the intake form stops going to a shared inbox.</p><p>When a project is scoped as "the system," the date slides forever, because "the system" grows every time someone new looks at it. When it is scoped as "the version that replaces the spreadsheet for the scheduling team," there is an actual thing to finish. Everything else becomes release two.</p><p>Every project we quote comes with a written scope before work starts, for exactly this reason. The scope is not paperwork. It is the thing that makes a date meaningful.</p><h2>The phases, and which ones actually eat the calendar</h2><h3>Discovery and scoping</h3><p>This is where we sit with the people who will use the thing, watch how the work happens now, and write down what the first release has to do. It is short relative to the build, but skipping it is how you end up rebuilding in month four. Expect to spend real hours here yourself: interviews, walkthroughs, digging up examples of your current process.</p><h3>Design and data modeling</h3><p>Screens matter, but the data model matters more. What is a job? Can a job have two customers? What happens to a record when a client leaves? Getting these answers wrong is one of the few mistakes that is genuinely expensive to fix later. This phase is mostly thinking and diagramming, and it moves at the speed of your answers.</p><h3>Build</h3><p>The longest stretch, and usually the most predictable one once scope is fixed. Work gets built in slices you can see and click, not delivered in one lump at the end. You should be looking at working software regularly throughout, not waiting for a reveal.</p><h3>Integrations</h3><p>This is the phase that surprises people. Connecting to your accounting system, your CRM, a payment processor, or a piece of industry software is rarely as simple as "they have an API." Credentials take time to get. Sandbox environments behave differently from production. Some vendors take weeks to approve access. We flag integration risk early because it is the one area where the schedule partly belongs to someone else.</p><h3>Data migration</h3><p>If you have ten years of records in a spreadsheet, an old database, or a system you are leaving, moving that data over is its own project. Real business data is messy: duplicate customers, blank fields, dates in four formats, notes typed into the wrong column. Cleaning it is unglamorous and it takes as long as it takes.</p><h3>Testing, training, and launch</h3><p>Testing is not just us finding bugs. It is your staff using the software the way they actually work, which is never the way anyone predicted. Budget time for that, plus training and a short period where people run the old way and the new way side by side.</p><h2>What actually makes a project fast or slow</h2><ul><li><strong>Scope width.</strong> One workflow done well ships far sooner than five workflows done partially.</li><li><strong>Number of user types.</strong> An internal tool for one team is simpler than a system with admins, staff, customers, and vendors, each seeing different things. Every role adds permissions, screens, and edge cases.</li><li><strong>Integrations.</strong> Each external system adds time, and adds risk you do not fully control.</li><li><strong>Decision speed on your side.</strong> One empowered decision maker who reviews work within a few days is worth more to the schedule than any tooling. A committee that meets monthly can double a timeline without changing a single requirement.</li><li><strong>Data quality.</strong> Clean, consistent, exportable data is a gift. The opposite is a hidden phase.</li><li><strong>Compliance and security requirements.</strong> Handling health information, payment data, or client financials means extra review, extra controls, and extra testing. Worth it, but it is not free in time.</li><li><strong>Content and assets.</strong> Policies, templates, document copy, legal language. Software waits on these more often than anyone expects.</li></ul><h2>Three rough shapes, so you can find yourself</h2><p>These are general patterns across the industry, not a promise about your project. Your written scope is what sets your date.</p><h3>A focused internal tool</h3><p>Replacing one spreadsheet or one manual process for one team. Few user roles, little or no integration, small amount of existing data. These are the projects that can realistically be in people's hands in a matter of weeks to a couple of months, and they are often the best first thing to build because they prove the approach with low risk.</p><h3>A customer portal or client-facing app</h3><p>Logins, roles, documents or payments, notifications, an integration or two, and a design that has to look like your brand in front of customers. This is the most common request we get from service businesses, clinics, and B2B companies, and it typically lives in the several-month range for a first release.</p><h3>A platform that runs the business</h3><p>Multiple departments, multiple integrations, reporting, migration off an old system. These are measured in many months, and the right move is almost always to break them into releases rather than aim at one enormous launch date. We built GridLink, a full-stack procurement platform for enterprise fuel buying, and FundStart AI, a research platform for the AEC industry, and in both cases the value came from shipping something usable and then widening it. You can see more examples in our <a href="../previous-work.html">previous work</a>.</p><h2>How to get to a useful release sooner</h2><ol><li><strong>Cut the first release in half, then look again.</strong> Ask of every feature: if this were missing on day one, would anyone stop using the software? If not, it is release two.</li><li><strong>Name one decision maker.</strong> Gather input widely, decide narrowly.</li><li><strong>Hand over real data early.</strong> Not a sample. The actual export, mess and all.</li><li><strong>Start vendor and API access requests on day one.</strong> These sit in someone else's queue.</li><li><strong>Keep manual steps where they are cheap.</strong> Automating a task that happens twice a year rarely earns its build time.</li><li><strong>Book your own team's testing time in advance.</strong> Reviews that happen "when things calm down" never happen.</li></ol><h2>Warning signs the date is not real</h2><ul><li>A firm date quoted before anyone has written down what the software does.</li><li>No working software to look at until the end.</li><li>Requirements still changing weekly after the build starts, with no change-order conversation.</li><li>Integration work pushed to the last month.</li><li>"We'll handle data migration at launch."</li></ul><h2>When the answer is you do not need custom software yet</h2><p>If an off-the-shelf product covers eighty percent of what you need and the missing twenty percent is a preference rather than a constraint, buy the product. If your process changes every quarter because the business is still finding its shape, wait until it settles. If the problem is really a website problem, that is a shorter and cheaper path than a software build, and we cover that in our <a href="../websites.html">custom websites</a> service.</p><p>Custom software earns its timeline when the process is genuinely yours, when the manual work is constant, or when no product on the market fits the way your industry actually operates.</p><h2>The short version</h2><p>Weeks for a narrow internal tool. Months for a portal or client-facing app. Longer, in stages, for a platform. The schedule is shaped by scope, integrations, data, and how fast your side can decide, and it should be written down before anyone starts building. If you want a straight read on where your idea falls, that is the first conversation we have on any <a href="../custom-software-development-minneapolis.html">custom software development in Minneapolis</a> project, and we work with clients across the country the same way.</p>
+        </div>
+        <div class="post-related">
+          <h2 class="h4">Keep reading</h2>
+          <div class="row">
+          <div class="col-md-6 mb-4">
+            <a class="post-card" href="do-you-need-a-web-developer-or-a-web-designer.html">
+              <p class="post-card-kicker">Buyer's Guide</p>
+              <h3 class="h4">Do You Need a Web Developer or a Web Designer?</h3>
+              <p>Most small business projects need both skills, but rarely in equal measure. Here is how to tell which one your project actually hinges on before you start calling people.</p>
+              <p class="post-meta"><time datetime="2026-09-08">September 8, 2026</time> · 6 min read</p>
+            </a>
+          </div>
+          <div class="col-md-6 mb-4">
+            <a class="post-card" href="how-much-does-a-website-cost-minneapolis.html">
+              <p class="post-card-kicker">Pricing Guide · 2026</p>
+              <h3 class="h4">How Much Does a Website Cost in Minneapolis?</h3>
+              <p>Typical 2026 ranges for DIY builders, freelancers, and custom studios in the Twin Cities, what actually drives the price, and the hidden costs most quotes leave out.</p>
+              <p class="post-meta"><time datetime="2026-09-08">September 8, 2026</time> · 8 min read</p>
+            </a>
+          </div>
+          </div>
         </div>
         <p class="post-back"><a href="index.html">← All posts</a></p>
       </div>
@@ -197,6 +223,8 @@
       </div>
     </section>
 
+
+    </main>
 
     <!-- Shared footer -->
     <footer class="bg-muted-grey">
@@ -221,9 +249,9 @@
 
             <div class="footer-social-links">
               <ul>
-                <li><a href="https://www.facebook.com/people/XtraordinaryDevelopment/61563038754489/#" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a></li>
-                <li><a href="https://www.instagram.com/xtraordinary_development_llc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a></li>
-                <li><a href="https://www.linkedin.com/company/x-traordinary-development" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a></li>
+                <li><a href="https://www.facebook.com/people/XtraordinaryDevelopment/61563038754489/#" aria-label="X-Traordinary Development on Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/xtraordinary_development_llc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="X-Traordinary Development on Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/x-traordinary-development" aria-label="X-Traordinary Development on Linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a></li>
               </ul>
             </div>
           </div>
@@ -279,23 +307,9 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/portfolio.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/main.js"></script>
-    <script>
-      window.intercomSettings = {
-        api_base: "https://api-iam.intercom.io",
-        app_id: "t0vayrzl",
-      };
-    </script>
-    <script>
-      // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/t0vayrzl'
-      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/t0vayrzl';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
-    </script>
-    <script src="../js/cursor.js"></script>
-  </body>
-</html>
+

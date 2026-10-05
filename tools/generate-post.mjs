@@ -155,7 +155,7 @@ const body = post.body_html.trim().replace(/^<p>(?!.*class=)/, '<p class="lead">
 fs.writeFileSync(path.join(CONTENT_DIR, `${slug}.html`), body + '\n');
 const entry = {
   slug, title: post.title, h1: post.h1, kicker: post.kicker, description: post.description, excerpt: post.excerpt,
-  date: today, readMinutes: post.read_minutes, image: `${SITE}/images/logo.png`,
+  date: today, readMinutes: post.read_minutes, image: `${SITE}/images/og-card.jpg`,
   cta: { h2: post.cta_h2, text: post.cta_text, button: post.cta_button, href: '../contact.html' },
   generated: true,
 };

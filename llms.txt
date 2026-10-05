@@ -1,0 +1,30 @@
+# X-Traordinary Development
+
+> Custom software, website, and AI development studio based in Minneapolis, MN, also serving Miami, FL and clients across the United States. Black-owned. Founded and led by Xavier Thurman.
+
+We hand-code websites (no templates or page builders), build web applications, internal tools, customer portals, and AI systems, and take over and modernize existing codebases. Stack: .NET/C#, React/Next.js, Angular, Python, SQL Server/PostgreSQL, Azure/AWS/Vercel. Every project is quoted as a fixed price with a written scope, and clients own their code, content, and domain.
+
+Contact: xavier.thurman@x-traordinarydevelopment.com, +1 763-742-4823, https://x-traordinarydevelopment.com/contact.html
+
+## Services
+
+- [Custom websites](https://x-traordinarydevelopment.com/websites.html): website design and development for businesses, nonprofits, and events
+- [Web design in Minneapolis](https://x-traordinarydevelopment.com/web-design-minneapolis.html): websites for Twin Cities businesses
+- [Web design in Miami](https://x-traordinarydevelopment.com/web-design-miami.html): websites for South Florida businesses, bilingual-ready
+- [Custom software development in Minneapolis](https://x-traordinarydevelopment.com/custom-software-development-minneapolis.html): web apps, internal tools, portals, AI systems
+- [Website redesign](https://x-traordinarydevelopment.com/website-redesign.html): rebuilding slow or dated sites without losing search rankings
+- [All development services](https://x-traordinarydevelopment.com/services.html): web, mobile, custom software, AI, .NET, React, Python, DevOps
+
+## Work
+
+- [Previous work](https://x-traordinarydevelopment.com/previous-work.html): live client sites and products, including Works of Heart (gala and art auction for Saint John's Abbey), GridLink (procurement platform), The R3D Key (Minnesota general contractor), Plates & Playmakers (Minneapolis charity gala), Low Fuel (mobile fueling), and VSC Peptides (e-commerce)
+- Enterprise engineering experience on internal applications at U.S. Bank and CHS Inc.
+
+## Guides
+
+- [Blog](https://x-traordinarydevelopment.com/blog/): plain-English guides on website cost, WordPress vs custom code, software timelines, and hiring developers
+
+## Company
+
+- [About](https://x-traordinarydevelopment.com/about.html)
+- [AI consultancy](https://x-traordinary.ai/)

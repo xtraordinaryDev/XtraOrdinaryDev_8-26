@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-# Old drafts carry <meta name="robots" content="noindex"> instead of a Disallow here,
-# so Google can still crawl them once and drop them from the index.
-
 Sitemap: https://x-traordinarydevelopment.com/sitemap.xml

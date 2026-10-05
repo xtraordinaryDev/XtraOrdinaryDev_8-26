@@ -57,7 +57,6 @@ function chrome() {
   }
   const tail = src.slice(src.indexOf('    <script>\n      window.intercomSettings')).replace('src="js/cursor.js"', 'src="../js/cursor.js"');
   const scripts = `    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/main.js"></script>
 `;
   return { headTop, fontsAndCss, nav, footer, tail, scripts };
@@ -78,6 +77,7 @@ function head(c, { title, desc, url, image, ld, ogType }) {
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(desc)}">
     <meta name="twitter:image" content="${image}">
+    <link rel="alternate" type="application/rss+xml" title="X-Traordinary Development Blog" href="${SITE}/blog/feed.xml">
 ${c.fontsAndCss}    <script type="application/ld+json">
     ${JSON.stringify(ld, null, 2).replace(/\n/g, '\n    ')}
     </script>
@@ -108,7 +108,17 @@ const cta = (h2, text, btn, href) => `    <!-- Call to action -->
 
 `;
 
-export function renderPost(c, p) {
+const card = (p, href, col) => `          <div class="${col} mb-4">
+            <a class="post-card" href="${href}">
+              <p class="post-card-kicker">${esc(p.kicker)}</p>
+              <h3 class="h4">${esc(p.h1)}</h3>
+              <p>${esc(p.excerpt)}</p>
+              <p class="post-meta"><time datetime="${p.date}">${fmtDate(p.date)}</time> · ${p.readMinutes} min read</p>
+            </a>
+          </div>`;
+
+export function renderPost(c, p, posts = []) {
+  const related = posts.filter((x) => x.slug !== p.slug).slice(0, 2);
   const url = `${SITE}/blog/${p.slug}.html`;
   const body = read(path.join(CONTENT_DIR, `${p.slug}.html`)).trim();
   const ld = { '@context': 'https://schema.org', '@graph': [
@@ -131,19 +141,25 @@ export function renderPost(c, p) {
       </div>
     </header>
 
-
+    <main id="main">
     <!-- Article -->
     <article class="post">
       <div class="container section-spacing-lg">
         <div class="post-body reveal-on-scroll">
 ${body}
         </div>
-        <p class="post-back"><a href="index.html">← All posts</a></p>
+${related.length ? `        <div class="post-related">
+          <h2 class="h4">Keep reading</h2>
+          <div class="row">
+${related.map((r) => card(r, `${r.slug}.html`, 'col-md-6')).join('\n')}
+          </div>
+        </div>
+` : ''}        <p class="post-back"><a href="index.html">← All posts</a></p>
       </div>
     </article>
 
 
-` + cta(p.cta.h2, p.cta.text, p.cta.button, p.cta.href || '../contact.html') + c.footer + c.scripts + c.tail;
+` + cta(p.cta.h2, p.cta.text, p.cta.button, p.cta.href || '../contact.html') + '    </main>\n\n' + c.footer + c.scripts + c.tail;
 }
 
 export function renderIndex(c, posts) {
@@ -163,7 +179,7 @@ export function renderIndex(c, posts) {
               <p class="post-meta"><time datetime="${p.date}">${fmtDate(p.date)}</time> · ${p.readMinutes} min read</p>
             </a>
           </div>`).join('\n');
-  return head(c, { title: 'Blog: Websites, Custom Software & AI for Business | X-Traordinary', desc: 'Plain-English guides on website costs, WordPress vs custom code, software projects, and AI for business owners – from X-Traordinary Development in Minneapolis, MN.', url, image: `${SITE}/images/logo.png`, ld, ogType: 'website' }) + c.nav +
+  return head(c, { title: 'Blog: Websites, Custom Software & AI for Business | X-Traordinary', desc: 'Plain-English guides on website costs, WordPress vs custom code, software projects, and AI for business owners – from X-Traordinary Development in Minneapolis, MN.', url, image: `${SITE}/images/og-card.jpg`, ld, ogType: 'website' }) + c.nav +
 `      <div class="blog-hero">
         <div class="container">
           <p class="hero-kicker">Guides &amp; Case Studies</p>
@@ -173,7 +189,7 @@ export function renderIndex(c, posts) {
       </div>
     </header>
 
-
+    <main id="main">
     <!-- Posts -->
     <section>
       <div class="container section-spacing-lg">
@@ -184,7 +200,7 @@ ${cards}
     </section>
 
 
-` + cta('Have a question we should answer next?', 'If you are weighing a website or software decision and cannot find a straight answer, ask us. We may write the post – and we will definitely reply.', 'Ask a question', '../contact.html') + c.footer + c.scripts + c.tail;
+` + cta('Have a question we should answer next?', 'If you are weighing a website or software decision and cannot find a straight answer, ask us. We may write the post – and we will definitely reply.', 'Ask a question', '../contact.html') + '    </main>\n\n' + c.footer + c.scripts + c.tail;
 }
 
 export function updateSitemap(posts) {
@@ -202,16 +218,62 @@ export function updateSitemap(posts) {
   fs.writeFileSync(file, sm);
 }
 
+const xml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+export function renderFeed(posts) {
+  const items = posts.slice(0, 20).map((p) => [
+    '    <item>',
+    '      <title>' + xml(p.h1) + '</title>',
+    '      <link>' + SITE + '/blog/' + p.slug + '.html</link>',
+    '      <guid isPermaLink="true">' + SITE + '/blog/' + p.slug + '.html</guid>',
+    '      <pubDate>' + new Date(p.date + 'T14:00:00Z').toUTCString() + '</pubDate>',
+    '      <description>' + xml(p.description) + '</description>',
+    '    </item>',
+  ].join('\n')).join('\n');
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+    '  <channel>',
+    '    <title>X-Traordinary Development Blog</title>',
+    '    <link>' + SITE + '/blog/</link>',
+    '    <atom:link href="' + SITE + '/blog/feed.xml" rel="self" type="application/rss+xml"/>',
+    '    <description>Plain-English guides on websites, custom software, and AI for business owners.</description>',
+    '    <language>en-us</language>',
+    items,
+    '  </channel>',
+    '</rss>',
+    '',
+  ].join('\n');
+}
+
+// Home page shows the three newest posts between <!-- blog:latest:start/end --> markers.
+export function updateHomeLatest(posts) {
+  const file = path.join(ROOT, 'index.html');
+  let h = read(file);
+  const re = /(<!-- blog:latest:start -->)[\s\S]*?([ \t]*<!-- blog:latest:end -->)/;
+  if (!re.test(h)) return false;
+  const eol = h.includes('\r\n') ? '\r\n' : '\n';
+  const cards = posts.slice(0, 3)
+    .map((p) => card(p, 'blog/' + p.slug + '.html', 'col-lg-4 col-md-6'))
+    .join('\n').split('\n').join(eol);
+  h = h.replace(re, (m, start, end) => start + eol + cards + eol + end);
+  fs.writeFileSync(file, h);
+  return true;
+}
+
 export function buildAll({ log = console.log } = {}) {
   const c = chrome();
   const posts = loadPosts();
   for (const p of posts) {
     const out = path.join(ROOT, 'blog', `${p.slug}.html`);
-    fs.writeFileSync(out, renderPost(c, p));
+    fs.writeFileSync(out, renderPost(c, p, posts));
     log(`built blog/${p.slug}.html`);
   }
   fs.writeFileSync(path.join(ROOT, 'blog', 'index.html'), renderIndex(c, posts));
   log('built blog/index.html');
+  fs.writeFileSync(path.join(ROOT, 'blog', 'feed.xml'), renderFeed(posts));
+  log('built blog/feed.xml');
+  if (updateHomeLatest(posts)) log('index.html latest posts updated');
   updateSitemap(posts);
   log('sitemap.xml updated');
   return posts;

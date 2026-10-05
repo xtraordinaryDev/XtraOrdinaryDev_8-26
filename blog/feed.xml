@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>X-Traordinary Development Blog</title>
+    <link>https://x-traordinarydevelopment.com/blog/</link>
+    <atom:link href="https://x-traordinarydevelopment.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Plain-English guides on websites, custom software, and AI for business owners.</description>
+    <language>en-us</language>
+    <item>
+      <title>How Long Does Custom Software Take to Build?</title>
+      <link>https://x-traordinarydevelopment.com/blog/how-long-does-custom-software-take-to-build.html</link>
+      <guid isPermaLink="true">https://x-traordinarydevelopment.com/blog/how-long-does-custom-software-take-to-build.html</guid>
+      <pubDate>Mon, 28 Sep 2026 14:00:00 GMT</pubDate>
+      <description>A plain-English look at how long a first release of custom software really takes, what drives the schedule, and where projects quietly lose weeks along the way.</description>
+    </item>
+    <item>
+      <title>Do You Need a Web Developer or a Web Designer?</title>
+      <link>https://x-traordinarydevelopment.com/blog/do-you-need-a-web-developer-or-a-web-designer.html</link>
+      <guid isPermaLink="true">https://x-traordinarydevelopment.com/blog/do-you-need-a-web-developer-or-a-web-designer.html</guid>
+      <pubDate>Tue, 08 Sep 2026 14:00:00 GMT</pubDate>
+      <description>Designer, developer, or both? A plain-English guide to figuring out which one your website or software project actually needs, plus what to ask before you hire.</description>
+    </item>
+    <item>
+      <title>How Much Does a Website Cost in Minneapolis?</title>
+      <link>https://x-traordinarydevelopment.com/blog/how-much-does-a-website-cost-minneapolis.html</link>
+      <guid isPermaLink="true">https://x-traordinarydevelopment.com/blog/how-much-does-a-website-cost-minneapolis.html</guid>
+      <pubDate>Tue, 08 Sep 2026 14:00:00 GMT</pubDate>
+      <description>What Minneapolis businesses actually pay for a website in 2026 – DIY builders, freelancers, and custom agencies – what drives the price up, the hidden costs, and how to get a quote you can trust.</description>
+    </item>
+    <item>
+      <title>WordPress vs. a Custom-Coded Website</title>
+      <link>https://x-traordinarydevelopment.com/blog/wordpress-vs-custom-website.html</link>
+      <guid isPermaLink="true">https://x-traordinarydevelopment.com/blog/wordpress-vs-custom-website.html</guid>
+      <pubDate>Tue, 08 Sep 2026 14:00:00 GMT</pubDate>
+      <description>An honest comparison of WordPress and custom-coded websites for small and mid-size businesses – speed, security, SEO, cost over five years, and who should choose which.</description>
+    </item>
+    <item>
+      <title>Case Study: Works of Heart</title>
+      <link>https://x-traordinarydevelopment.com/blog/works-of-heart-case-study.html</link>
+      <guid isPermaLink="true">https://x-traordinarydevelopment.com/blog/works-of-heart-case-study.html</guid>
+      <pubDate>Tue, 08 Sep 2026 14:00:00 GMT</pubDate>
+      <description>How X-Traordinary Development designed and built worksofheart.us – an editorial event website with an auction catalogue, live countdown, interactive invitation, and ticketing for a gala benefiting Saint John's Abbey.</description>
+    </item>
+  </channel>
+</rss>

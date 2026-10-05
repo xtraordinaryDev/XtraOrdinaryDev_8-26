@@ -32,18 +32,21 @@
     <meta property="og:url" content="https://x-traordinarydevelopment.com/privacy-policy.html">
     <meta property="og:title" content="Privacy Policy - X-TRAORDINARY">
     <meta property="og:description" content="Privacy policy for X-Traordinary Development LLC – how we collect, use, and protect your information.">
-    <meta property="og:image" content="https://x-traordinarydevelopment.com/images/logo.png">
+    <meta property="og:image" content="https://x-traordinarydevelopment.com/images/og-card.jpg">
     <meta property="og:site_name" content="X-Traordinary Development">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Privacy Policy - X-TRAORDINARY">
     <meta name="twitter:description" content="Privacy policy for X-Traordinary Development LLC – how we collect, use, and protect your information.">
-    <meta name="twitter:image" content="https://x-traordinarydevelopment.com/images/logo.png">
+    <meta name="twitter:image" content="https://x-traordinarydevelopment.com/images/og-card.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Roboto:wght@400..700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Roboto:wght@400..700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Roboto:wght@400..700&display=swap"></noscript>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"></noscript>
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
@@ -97,6 +100,8 @@
         <img src="images/contact/banner.webp" alt="Contact X-Traordinary Development – custom software and web development in Minneapolis, MN">
       </div>
     </header>
+
+    <main id="main">
 
     <section>
       <div class="container section-spacing-lg">
@@ -240,6 +245,8 @@
       </div>
     </section>
 
+    </main>
+
     <!-- Shared footer -->
     <footer class="bg-muted-grey">
       <div class="container section-spacing-sm">
@@ -263,9 +270,9 @@
 
             <div class="footer-social-links">
               <ul>
-                <li><a href="https://www.facebook.com/people/XtraordinaryDevelopment/61563038754489/#" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a></li>
-                <li><a href="https://www.instagram.com/xtraordinary_development_llc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a></li>
-                <li><a href="https://www.linkedin.com/company/x-traordinary-development" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a></li>
+                <li><a href="https://www.facebook.com/people/XtraordinaryDevelopment/61563038754489/#" aria-label="X-Traordinary Development on Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/xtraordinary_development_llc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="X-Traordinary Development on Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/x-traordinary-development" aria-label="X-Traordinary Development on Linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a></li>
               </ul>
             </div>
           </div>
@@ -321,7 +328,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/main.js"></script>
 
     <script>
@@ -332,7 +338,7 @@
     </script>
     <script>
       // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/t0vayrzl'
-      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/t0vayrzl';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/t0vayrzl';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};var done=false;var go=function(){if(done)return;done=true;l();};['scroll','pointerdown','keydown','touchstart','mousemove'].forEach(function(e){w.addEventListener(e,go,{once:true,passive:true});});setTimeout(go,6000);}})();
     </script>
       <script src="js/cursor.js"></script>
   </body>

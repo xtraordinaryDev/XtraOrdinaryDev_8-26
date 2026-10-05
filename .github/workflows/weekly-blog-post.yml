@@ -36,14 +36,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # A draft changes blog/posts.json, the index and the topic queue, and the topic only leaves the
+      # queue when its PR is merged. So while one draft is waiting, do not write another: it would
+      # redo the same topic and conflict with the open PR. Nudge the open PR instead.
+      - name: Skip if a draft is still waiting for review
+        id: guard
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          OPEN=$(gh pr list --state open --json number,headRefName -q '[.[] | select(.headRefName | startswith("blog/draft-"))] | sort_by(.number) | last | .number // empty')
+          if [ -n "$OPEN" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Draft PR #$OPEN is still open - no new draft this week." >> "$GITHUB_STEP_SUMMARY"
+            gh pr comment "$OPEN" --body "Reminder: this draft is still waiting for review, so no new post was drafted this week. Merge it to publish, or close it to discard - the weekly drafts resume the Monday after."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-node@v4
+        if: steps.guard.outputs.skip != 'true'
         with:
           node-version: 22
           cache: npm
 
       - run: npm ci --no-audit --no-fund
+        if: steps.guard.outputs.skip != 'true'
 
       - name: Generate draft with Claude
+        if: steps.guard.outputs.skip != 'true'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -55,12 +75,14 @@ jobs:
 
       - name: Read PR details
         id: meta
+        if: steps.guard.outputs.skip != 'true'
         run: |
           TITLE=$(grep -m1 '^## New blog post draft: ' blog-draft-summary.md | sed 's/^## New blog post draft: //')
           echo "title=$TITLE" >> "$GITHUB_OUTPUT"
           echo "date=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
 
       - name: Open pull request
+        if: steps.guard.outputs.skip != 'true'
         uses: peter-evans/create-pull-request@v7
         with:
           branch: blog/draft-${{ steps.meta.outputs.date }}
@@ -71,6 +93,7 @@ jobs:
           labels: blog, needs-review
           add-paths: |
             blog/**
+            index.html
             sitemap.xml
             tools/topics.txt
 
