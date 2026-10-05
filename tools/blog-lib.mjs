@@ -145,7 +145,7 @@ export function renderPost(c, p, posts = []) {
     <!-- Article -->
     <article class="post">
       <div class="container section-spacing-lg">
-        <div class="post-body reveal-on-scroll">
+        <div class="post-body">
 ${body}
         </div>
 ${related.length ? `        <div class="post-related">
@@ -193,7 +193,7 @@ export function renderIndex(c, posts) {
     <!-- Posts -->
     <section>
       <div class="container section-spacing-lg">
-        <div class="row reveal-on-scroll">
+        <div class="row">
 ${cards}
         </div>
       </div>
