@@ -1,5 +1,23 @@
 [
   {
+    "slug": "what-an-ai-chatbot-really-costs-to-build-and-run",
+    "title": "What an AI Chatbot Actually Costs to Build and Run | X-Traordinary",
+    "h1": "What an AI chatbot really costs to build and run",
+    "kicker": "Buyer's Guide",
+    "description": "A plain-English breakdown of what an AI chatbot costs a small business, from build scope and content prep to monthly model usage, hosting, and upkeep.",
+    "excerpt": "An AI chatbot has two budgets: the one-time build and the monthly bill that never stops. Here is what sits inside each one, and when a chatbot is the wrong purchase.",
+    "date": "2026-10-05",
+    "readMinutes": 7,
+    "image": "https://x-traordinarydevelopment.com/images/og-card.jpg",
+    "cta": {
+      "h2": "Not sure a chatbot is the right spend?",
+      "text": "Tell us what questions your customers keep asking and we will tell you straight whether a chatbot, a better website, or neither is the fix. Fixed price, written scope, no pressure.",
+      "button": "Get a free quote",
+      "href": "../contact.html"
+    },
+    "generated": true
+  },
+  {
     "slug": "how-long-does-custom-software-take-to-build",
     "title": "How Long Does Custom Software Take to Build? | X-Traordinary",
     "h1": "How Long Does Custom Software Take to Build?",
