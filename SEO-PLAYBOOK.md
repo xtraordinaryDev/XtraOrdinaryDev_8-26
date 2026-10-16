@@ -14,7 +14,7 @@ national agencies with thousands of backlinks. No small agency wins those. What 
 | `/` (home) | custom software development Minneapolis | software development company Minneapolis, custom software Miami |
 | `/websites.html` | custom website design Minneapolis | web design Minneapolis, website developer Minneapolis, custom website Miami |
 | `/services.html` | software development services Minneapolis | web development company Minnesota, .NET developer Minneapolis |
-| `/apply-399-website.html` | affordable website for small business Minneapolis | $399 website, small business website design |
+| `/start` | website that books jobs Minnesota contractors | contractor website design Minnesota, free website mockup |
 | `/previous-work.html` | web design portfolio Minneapolis | (supports the others with proof) |
 | Future landing pages (§5) | web design Miami, custom software Miami, website redesign Minneapolis, etc. | |
 
@@ -74,7 +74,7 @@ Cloudflare). `static.yml` deploys `main` on every push, so **merging = publishin
   in Cloudflare (takes 5 minutes).
 - Sitemaps → submit `https://x-traordinarydevelopment.com/sitemap.xml`.
 - URL Inspection → **Request indexing** for `/`, `/websites.html`, `/services.html`,
-  `/previous-work.html`, `/apply-399-website.html`.
+  `/previous-work.html`, `/start`.
 - Removals → request removal of any `old*.html` / `2.html` etc. that show up in `site:` search.
 - Check "Pages" report weekly for "Crawled – not indexed" and "Duplicate" warnings.
 
@@ -96,7 +96,7 @@ Events already firing: `generate_lead` (contact form sent successfully) and `con
 - If you have no public office, choose "I deliver goods and services to my customers" and set the
   service area (Minneapolis, St. Paul, Twin Cities suburbs). Do the same for Miami **only** if you
   can verify a real Miami address — a fake one gets the whole profile suspended.
-- Fill every field: services (with prices where fixed, e.g. $399 website), description with the
+- Fill every field: services (with prices where fixed, e.g. websites from $2,500), description with the
   keywords from §0, business hours, phone `763-742-4823`, website `https://x-traordinarydevelopment.com/`.
 - Upload 10+ photos: logo, project screenshots (`assetsmschf/*.webp` work), a headshot.
 - Post an update weekly (a new project, a tip). Profiles that post rank higher.
@@ -122,7 +122,7 @@ the baseline. Status:
 4. ✅ **Fonts** moved from the CSS `@import` chain to a single `<link … display=swap>` in each
    page's `<head>` with preconnects.
 5. ✅ **Images**: hero image/banner/poster PNG+JPG converted to WebP (`about.png` 496 KB → 16 KB,
-   the three 4 MB screenshots on the $399 page → ~150 KB each); everything below the header is
+   the three 4 MB screenshots on the old $399 page (now a redirect to /start) → ~150 KB each); everything below the header is
    `loading="lazy" decoding="async"`.
 6. ✅ Poster images for all video heroes, preloaded (LCP).
 

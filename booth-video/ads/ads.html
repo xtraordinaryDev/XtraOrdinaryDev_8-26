@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--
+  Meta ad cards, premium set. build_ads.py renders each <div class="card"> to a PNG (transparent unless the card has a bg
+  class), then ffmpeg composites a phone-viewport site recording behind the phone frame and stitches the videos.
+  Sizes: data-size="9x16" -> 1080x1920, "4x5" -> 1080x1350, "1x1" -> 1080x1080.
+  The phone screen is transparent; build_ads.py places the recording at the same rectangle (PHONE below).
+  Static cards reference out/ads/<site>-mobile.png, a still that build_ads.py extracts from each recording.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F4F1EA;--ink:#141311;--ink-2:#1B1A17;--ink-soft:#3A382F;--body:#6B675C;--muted:#8B877A;--gold:#C8952F;--gold-deep:#A87B22;
+  --serif:"Fraunces",Georgia,serif;--sans:"Instrument Sans",Helvetica,Arial,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow:hidden;background:transparent}
+body{font-family:var(--sans);color:var(--cream);-webkit-font-smoothing:antialiased}
+.card{display:none;position:relative;width:1080px}
+.card.on{display:block}
+.card[data-size="9x16"]{height:1920px}
+.card[data-size="4x5"]{height:1350px}
+.card[data-size="1x1"]{height:1080px}
+/* dark: ink with a soft warm vignette so it doesn't read flat */
+.dark{background:radial-gradient(120% 90% at 50% 0%,#221F19 0%,var(--ink) 55%,#0E0D0B 100%)}
+.creambg{background:linear-gradient(180deg,#F7F4EE 0%,var(--cream) 100%);color:var(--ink)}
+h1{font-family:var(--serif);font-weight:500;line-height:1.06;letter-spacing:-.012em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--gold)}
+.creambg h1 em{color:var(--gold-deep)}
+.eyebrow{font-size:20px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:38px;display:flex;align-items:center;gap:18px}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--gold);opacity:.7}
+.creambg .eyebrow{color:var(--gold-deep)}
+.sub{font-size:32px;line-height:1.45;color:#B9B4A5;margin-top:34px;font-weight:400}
+.creambg .sub{color:var(--ink-soft)}
+
+/* phone frame: thin bezel, gold hairline, transparent screen. Rects match build_ads.py PHONE. */
+.phone{position:absolute;border:12px solid #0b0a09;border-radius:74px;background:transparent;
+  box-shadow:0 0 0 1px rgba(200,149,47,.55),0 70px 140px rgba(0,0,0,.55)}
+.creambg .phone{box-shadow:0 0 0 1px rgba(168,123,34,.45),0 60px 120px rgba(20,19,17,.28)}
+.phone::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:32%;height:38px;border-radius:24px;background:#0b0a09;z-index:3}
+.card[data-size="9x16"] .phone{left:208px;top:418px;width:664px;height:1410px}
+.card[data-size="4x5"] .phone{left:318px;top:288px;width:444px;height:933px;border-radius:52px}
+.card[data-size="4x5"] .phone::before{height:26px;top:5px}
+
+/* caption above the phone: quieter than before, more air */
+.cap{position:absolute;left:90px;right:90px;top:150px;text-align:center}
+.cap h1{font-size:64px}
+.card[data-size="4x5"] .cap{top:80px}
+.card[data-size="4x5"] .cap h1{font-size:52px}
+.cap .kicker{display:block;font-size:19px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;font-weight:500}
+.foot{position:absolute;left:0;right:0;bottom:50px;text-align:center;font-size:22px;color:var(--muted);letter-spacing:.06em}
+.foot b{color:#D9D4C6;font-weight:500}
+.card[data-size="4x5"] .foot{bottom:30px;font-size:19px}
+
+/* hook + end cards */
+.hook{position:absolute;left:90px;right:90px;top:50%;transform:translateY(-50%)}
+.hook h1{font-size:96px}
+.end{position:absolute;left:90px;right:90px;top:50%;transform:translateY(-50%);text-align:center}
+.end img{height:170px;margin:0 auto 70px;display:block;opacity:.95}
+.end h1{font-size:88px}
+.end .line{width:60px;height:1px;background:var(--gold);margin:54px auto 44px;opacity:.8}
+.end .pts{font-size:31px;line-height:1.9;color:#C9C4B5}
+.end .pts em{font-style:normal;color:var(--cream)}
+.end .url{display:inline-block;margin-top:64px;font-size:30px;letter-spacing:.06em;color:var(--gold);border-bottom:1px solid rgba(200,149,47,.6);padding-bottom:10px}
+.card[data-size="4x5"] .end img{height:130px;margin-bottom:46px}
+.card[data-size="4x5"] .end h1{font-size:70px}
+.card[data-size="4x5"] .end .pts{font-size:26px}
+.card[data-size="4x5"] .end .url{font-size:26px;margin-top:44px}
+
+/* statics */
+.tag{position:absolute;left:80px;top:48px;font-size:19px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.static .txt{position:absolute;left:80px;right:80px;top:120px}
+.static h1{font-size:84px}
+.static .sub{font-size:31px;max-width:900px}
+.static .shot{position:absolute;left:50%;transform:translateX(-50%);top:640px;width:520px;border-radius:60px;background:#0b0a09;padding:12px;
+  box-shadow:0 0 0 1px rgba(200,149,47,.55),0 60px 120px rgba(0,0,0,.5)}
+.creambg .static .shot{box-shadow:0 0 0 1px rgba(168,123,34,.45),0 50px 100px rgba(20,19,17,.28)}
+.static .shot img{width:100%;border-radius:48px;display:block}
+.card[data-size="1x1"] .static .txt{top:90px}
+.card[data-size="1x1"] .static h1{font-size:70px}
+.card[data-size="1x1"] .static .sub{font-size:27px;margin-top:24px}
+.card[data-size="1x1"] .static .shot{width:420px;top:500px;border-radius:50px}
+.card[data-size="1x1"] .static .shot img{border-radius:40px}
+.price{position:absolute;right:80px;top:48px;font-family:var(--serif);font-style:italic;font-size:26px;color:var(--gold)}
+.creambg .price{color:var(--gold-deep)}
+</style>
+</head>
+<body>
+
+<!-- ============ VIDEO P1 · "Premium" (9:16): hook -> three sites -> end ============ -->
+<div class="card dark" id="p1_hook" data-size="9x16">
+  <div class="hook"><div class="eyebrow">For contractors who charge what they're worth</div><h1>Your work is premium. <em>Your website should be too.</em></h1></div>
+</div>
+<div class="card" id="p1_vsc" data-size="9x16">
+  <div class="cap"><span class="kicker">Designed from scratch</span><h1>Designed. <em>Not templated.</em></h1></div>
+  <div class="phone"></div>
+  <div class="foot">VSC Peptides · designed &amp; built by <b>X-traordinary</b></div>
+</div>
+<div class="card" id="p1_pnp" data-size="9x16">
+  <div class="cap"><h1>Built to look like <em>the price you charge.</em></h1></div>
+  <div class="phone"></div>
+  <div class="foot">platesandplaymakers.com · designed &amp; built by <b>X-traordinary</b></div>
+</div>
+<div class="card" id="p1_trk" data-size="9x16">
+  <div class="cap"><h1>Built to <em>book estimates.</em></h1></div>
+  <div class="phone"></div>
+  <div class="foot">trk-contracting.com · a Twin Cities remodeler · built by <b>X-traordinary</b></div>
+</div>
+<div class="card dark" id="end_9x16" data-size="9x16">
+  <div class="end"><img src="../out/logo.png" alt=""><h1>Custom websites <em>from $4,500.</em></h1>
+    <div class="line"></div>
+    <div class="pts"><em>Homepage designed before you commit</em><br>Live in 14 days<br>You own everything</div>
+    <span class="url">x-traordinarydevelopment.com/start</span></div>
+</div>
+
+<!-- ============ VIDEO P2 · "Selective" (9:16 + 4:5): opens on the work ============ -->
+<div class="card" id="p2_a_9x16" data-size="9x16">
+  <div class="cap"><span class="kicker">Minneapolis · Miami</span><h1>I build four websites <em>a month.</em></h1></div>
+  <div class="phone"></div>
+  <div class="foot">platesandplaymakers.com · designed &amp; built by <b>X-traordinary</b></div>
+</div>
+<div class="card" id="p2_b_9x16" data-size="9x16">
+  <div class="cap"><h1>Each one designed <em>by hand, from scratch.</em></h1></div>
+  <div class="phone"></div>
+  <div class="foot">VSC Peptides · designed &amp; built by <b>X-traordinary</b></div>
+</div>
+<div class="card" id="p2_c_9x16" data-size="9x16">
+  <div class="cap"><h1>Homepage designed before you commit. <em>From $4,500.</em></h1></div>
+  <div class="phone"></div>
+  <div class="foot">worksofheart.us · designed &amp; built by <b>X-traordinary</b></div>
+</div>
+<div class="card" id="p2_a_4x5" data-size="4x5">
+  <div class="cap"><span class="kicker">Minneapolis · Miami</span><h1>I build four websites <em>a month.</em></h1></div>
+  <div class="phone"></div>
+  <div class="foot">platesandplaymakers.com · designed &amp; built by <b>X-traordinary</b></div>
+</div>
+<div class="card" id="p2_b_4x5" data-size="4x5">
+  <div class="cap"><h1>Each one designed <em>by hand, from scratch.</em></h1></div>
+  <div class="phone"></div>
+  <div class="foot">VSC Peptides · designed &amp; built by <b>X-traordinary</b></div>
+</div>
+<div class="card" id="p2_c_4x5" data-size="4x5">
+  <div class="cap"><h1>Homepage designed before you commit. <em>From $4,500.</em></h1></div>
+  <div class="phone"></div>
+  <div class="foot">worksofheart.us · designed &amp; built by <b>X-traordinary</b></div>
+</div>
+<div class="card dark" id="end_4x5" data-size="4x5">
+  <div class="end"><img src="../out/logo.png" alt=""><h1>Custom websites <em>from $4,500.</em></h1>
+    <div class="line"></div>
+    <div class="pts"><em>Homepage designed before you commit</em><br>Live in 14 days · You own everything</div>
+    <span class="url">x-traordinarydevelopment.com/start</span></div>
+</div>
+
+<!-- ============ STATICS ============ -->
+<div class="card dark" id="s1_4x5" data-size="4x5">
+  <div class="tag">X-traordinary</div><div class="price">from $4,500</div>
+  <div class="static"><div class="txt"><h1>Your work is premium. <em>Your website should be too.</em></h1><p class="sub">Custom websites for contractors who charge what they're worth. Homepage designed before you commit. Live in 14 days.</p></div>
+  <div class="shot"><img src="../out/ads/vsc-mobile.png" alt=""></div></div>
+</div>
+<div class="card dark" id="s1_1x1" data-size="1x1">
+  <div class="tag">X-traordinary</div><div class="price">from $4,500</div>
+  <div class="static"><div class="txt"><h1>Your work is premium. <em>Your website should be too.</em></h1><p class="sub">Homepage designed before you commit. Live in 14 days.</p></div>
+  <div class="shot"><img src="../out/ads/vsc-mobile.png" alt=""></div></div>
+</div>
+<div class="card creambg" id="s2_4x5" data-size="4x5">
+  <div class="tag">X-traordinary</div><div class="price">from $4,500</div>
+  <div class="static"><div class="txt"><h1>Designed. <em>Not templated.</em></h1><p class="sub">Four websites a month, each designed by hand for a business that charges what it's worth. Homepage designed before you commit. Live in 14 days.</p></div>
+  <div class="shot"><img src="../out/ads/pnp-mobile.png" alt=""></div></div>
+</div>
+<div class="card dark" id="s3_4x5" data-size="4x5">
+  <div class="tag">X-traordinary</div><div class="price">from $4,500</div>
+  <div class="static"><div class="txt"><h1>See your homepage <em>before you commit.</em></h1><p class="sub">I design it first. If it's not the best-looking site in your trade, you owe nothing. Live in 14 days. You own everything.</p></div>
+  <div class="shot"><img src="../out/ads/woh-mobile.png" alt=""></div></div>
+</div>
+
+<script>
+  var id=new URLSearchParams(location.search).get('card')||'p1_hook';
+  document.getElementById(id).classList.add('on');
+</script>
+</body>
+</html>

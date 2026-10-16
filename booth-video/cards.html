@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--
+  Title cards for the booth video. Each <div class="card" id="..."> is one 1920x1080 card.
+  build.py renders each card to out/card-<id>.png with headless Chrome, then ffmpeg animates them.
+  To change wording: edit the text below and re-run  python3 booth-video/build.py
+  Cards with class "ov", "offer", "cap" or "close" are transparent overlays that sit on top of video.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F4F1EA;--cream-2:#EDE9DF;--ink:#141311;--ink-soft:#3A382F;--body:#6B675C;--gold:#C8952F;--gold-deep:#A87B22;--gold-tint:#F5E9CF;--paper:#FFFDF8;--line:#E2DDD0;--green:#1D9E75;
+  --serif:"Fraunces",Georgia,serif;--sans:"Instrument Sans",Helvetica,Arial,sans-serif;--mono:"IBM Plex Mono",monospace;}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:transparent}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+.card{display:none;width:1920px;height:1080px;position:relative}
+.card.on{display:block}
+.cream{background:var(--cream)}
+.dark{background:var(--ink);color:var(--cream)}
+.wm{position:absolute;top:44px;left:80px;display:flex;align-items:center;font-size:0}
+.wm img{height:78px}
+.url{position:absolute;bottom:52px;left:80px;font-family:var(--mono);font-size:20px;color:var(--body);letter-spacing:.02em}
+.dark .url,.ov .url{color:#A5A195}
+h1{font-family:var(--serif);font-weight:600;line-height:1.02;letter-spacing:-.015em}
+h1 em,h2 em{font-style:italic;color:var(--gold-deep)}
+.dark h1 em,.dark h2 em,.ov h1 em,.ov h2 em,.offer h1 em,.cap h1 em,.close h1 em{color:var(--gold)}
+.tag{font-size:16px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep)}
+.dark .tag,.ov .tag,.offer .tag,.cap .tag{color:var(--gold)}
+
+/* intro overlay (sits on the gold hero video) */
+.ov{background:linear-gradient(180deg,rgba(20,19,17,0) 35%,rgba(20,19,17,.55) 62%,rgba(20,19,17,.92) 100%)}
+.ov .txt{position:absolute;left:80px;bottom:120px;max-width:1500px;color:var(--cream)}
+.ov h1{font-size:104px}
+.ov .sub{font-size:28px;color:#C6C2B4;margin-top:26px}
+.ov .sub b{color:var(--cream);font-weight:600}
+
+/* portfolio cards: browser frame on the left, copy on the right.
+   The screenshot scrolls inside the frame at (80,164) 1180x796 - build.py depends on those numbers. */
+.pf .frame{position:absolute;left:80px;top:120px;width:1180px;height:840px;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 40px 90px rgba(20,19,17,.18);border:1px solid var(--line);overflow:hidden}
+.pf .bar{height:44px;background:var(--cream-2);border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 16px;gap:8px}
+.pf .bar i{width:12px;height:12px;border-radius:50%;background:#D9D3C3;display:block}
+.pf .bar span{margin-left:14px;font-family:var(--mono);font-size:14px;color:var(--body);background:#fff;border-radius:8px;padding:5px 14px;flex:1}
+.pf .side{position:absolute;left:1330px;top:150px;width:510px}
+.pf .num{font-family:var(--mono);font-size:20px;color:var(--gold-deep);margin-bottom:18px}
+.pf h2{font-family:var(--serif);font-weight:600;font-size:60px;line-height:1.02;letter-spacing:-.01em;margin-bottom:22px}
+.pf .desc{font-size:22px;line-height:1.5;color:var(--ink-soft)}
+.pf .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.pf .tags span{border:1.5px solid var(--gold);color:var(--gold-deep);border-radius:100px;padding:8px 16px;font-size:15px;font-weight:600;letter-spacing:.04em}
+.pf .live{margin-top:40px;font-size:17px;color:var(--body);display:flex;align-items:center;gap:10px}
+.pf .live::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--green)}
+
+/* NDA / enterprise card */
+.nda .head{position:absolute;left:80px;top:150px}
+.nda h1{font-size:88px;color:var(--cream)}
+.nda .lead{font-size:24px;color:#A5A195;margin-top:22px;max-width:1100px}
+.files{position:absolute;left:80px;right:80px;top:470px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.file{background:#1E1D1A;border:1px solid #2B2A24;border-radius:22px;padding:38px 36px;height:420px;position:relative}
+.file .lab{font-family:var(--mono);font-size:14px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
+.file h3{font-family:var(--serif);font-size:44px;font-weight:600;margin:18px 0 16px;color:var(--cream)}
+.file p{font-size:19px;line-height:1.5;color:#A5A195}
+.file dl{margin-top:26px;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:16px}
+.file dt{color:#6E6A5E;letter-spacing:.12em;text-transform:uppercase;font-size:12px;padding-top:4px}
+.file dd{color:#C6C2B4;font-weight:500}
+
+/* logo wall */
+.logos .head{position:absolute;left:0;right:0;top:170px;text-align:center}
+.logos h1{font-size:88px}
+.logos .lead{font-size:24px;color:var(--body);margin-top:18px}
+.logos .grid{position:absolute;left:120px;right:120px;top:470px;display:grid;grid-template-columns:repeat(6,1fr);gap:30px}
+.logos .cell{background:var(--paper);border:1px solid var(--line);border-radius:20px;height:250px;display:flex;align-items:center;justify-content:center;padding:34px}
+.logos .cell img{max-width:100%;max-height:100%;object-fit:contain}
+.logos .row2{position:absolute;left:0;right:0;top:790px;text-align:center;font-size:20px;color:var(--body);letter-spacing:.02em}
+.logos .row2 b{color:var(--ink);font-weight:600}
+
+/* offer overlay (sits on the gold-nugget texture clip) */
+.offer{background:linear-gradient(90deg,rgba(20,19,17,.94) 0%,rgba(20,19,17,.8) 55%,rgba(20,19,17,.35) 100%)}
+.offer .txt{position:absolute;left:80px;top:200px;max-width:1650px;color:var(--cream)}
+.offer h1{font-size:92px}
+.offer .pts{margin-top:44px;display:flex;flex-direction:column;gap:18px}
+.offer .pts div{font-size:30px;color:#E6E1D3;display:flex;align-items:center;gap:18px}
+.offer .pts div::before{content:"✓";color:var(--gold);font-weight:700;font-size:30px}
+.offer .cta{margin-top:56px;display:inline-block;background:var(--gold);color:var(--ink);font-weight:700;font-size:26px;padding:22px 44px;border-radius:100px}
+
+/* caption overlay (sits on the coding timelapse) */
+.cap{background:linear-gradient(180deg,rgba(20,19,17,0) 55%,rgba(20,19,17,.9) 100%)}
+.cap .txt{position:absolute;left:80px;bottom:90px;color:var(--cream)}
+.cap h1{font-size:72px}
+.cap .sub{font-size:26px;color:#C6C2B4;margin-top:16px}
+
+/* closing overlay (sits on the tail of the hero video) */
+.close{background:rgba(20,19,17,.86);text-align:center;color:var(--cream)}
+.close img{position:absolute;left:50%;top:150px;transform:translateX(-50%);height:290px}
+.close h1{position:absolute;left:0;right:0;top:470px;font-size:84px}
+.close .contact{position:absolute;left:0;right:0;top:640px;font-size:30px;line-height:1.9;color:#C6C2B4}
+.close .contact b{color:var(--cream);font-weight:600}
+.close .contact .gold{color:var(--gold);font-weight:600}
+.close .foot{position:absolute;left:0;right:0;bottom:60px;font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:#8B877A}
+</style>
+</head>
+<body>
+
+<!-- ===== INTRO (overlay on the homepage hero video) ===== -->
+<div class="card ov" id="intro">
+  <div class="wm"><img src="out/logo.png" alt=""></div>
+  <div class="txt">
+    <span class="tag">Custom web · software · AI</span>
+    <h1 style="margin-top:22px">Websites that book jobs.<br><em>Software that runs the business.</em></h1>
+    <p class="sub">Designed and built by hand in <b>Minneapolis, MN</b> and <b>Miami, FL</b>. Every project below is live right now.</p>
+  </div>
+</div>
+
+<!-- ===== PORTFOLIO (one card per site; the screenshot named in build.py scrolls inside the frame) ===== -->
+<div class="card cream pf" id="woh">
+  <div class="frame"><div class="bar"><i></i><i></i><i></i><span>worksofheart.us</span></div></div>
+  <div class="side">
+    <div class="num">01 / 06</div>
+    <h2>Works of Heart</h2>
+    <p class="desc">Gala and fine-art auction site benefiting Saint John's Abbey. Full-bleed artwork hero, live countdown, featured lots, and direct ticketing.</p>
+    <div class="tags"><span>Event site</span><span>Auction catalogue</span><span>Countdown</span><span>Nonprofit</span></div>
+    <div class="live">Live and selling tickets</div>
+  </div>
+  <div class="url">x-traordinarydevelopment.com/previous-work</div>
+</div>
+
+<div class="card cream pf" id="grid">
+  <div class="frame"><div class="bar"><i></i><i></i><i></i><span>gridly-mvp.vercel.app</span></div></div>
+  <div class="side">
+    <div class="num">02 / 06</div>
+    <h2>GridLink</h2>
+    <p class="desc">Not a website, a product. Full-stack procurement platform for enterprise fuel buying: sourcing events, verified suppliers, AI-assisted bid comparison, audit-ready records.</p>
+    <div class="tags"><span>Full-stack SaaS</span><span>Next.js</span><span>Dashboards</span><span>AI bid engine</span></div>
+    <div class="live">Designed, architected, shipped</div>
+  </div>
+  <div class="url">x-traordinarydevelopment.com/previous-work</div>
+</div>
+
+<div class="card cream pf" id="vsc">
+  <div class="frame"><div class="bar"><i></i><i></i><i></i><span>VSC Peptides</span></div></div>
+  <div class="side">
+    <div class="num">03 / 06</div>
+    <h2>VSC Peptides</h2>
+    <p class="desc">Lab-grade e-commerce experience. Scroll-driven storytelling, animated purity counters, an interactive spec sheet, and a batch-verification narrative.</p>
+    <div class="tags"><span>Brand site</span><span>Scroll animation</span><span>E-comm UX</span></div>
+    <div class="live">Live</div>
+  </div>
+  <div class="url">x-traordinarydevelopment.com/previous-work</div>
+</div>
+
+<div class="card cream pf" id="lf">
+  <div class="frame"><div class="bar"><i></i><i></i><i></i><span>low-fuel.com</span></div></div>
+  <div class="side">
+    <div class="num">04 / 06</div>
+    <h2>Low Fuel</h2>
+    <p class="desc">Corporate web presence for a mobile fueling company serving aviation, construction, government, and education. Video-first hero and lead-capture flows built to win contracts.</p>
+    <div class="tags"><span>Corporate</span><span>Multi-page</span><span>Video hero</span><span>Lead gen</span></div>
+    <div class="live">Live</div>
+  </div>
+  <div class="url">x-traordinarydevelopment.com/previous-work</div>
+</div>
+
+<div class="card cream pf" id="trk">
+  <div class="frame"><div class="bar"><i></i><i></i><i></i><span>trk-contracting.com</span></div></div>
+  <div class="side">
+    <div class="num">05 / 06</div>
+    <h2>The R3D Key</h2>
+    <p class="desc">A conversion machine for a licensed Minnesota general contractor. Before/after video sliders, live Google reviews, and a five-step process built to turn homeowners into booked estimates.</p>
+    <div class="tags"><span>Local business</span><span>Video sliders</span><span>Reviews</span><span>Conversion</span></div>
+    <div class="live">Live and booking estimates</div>
+  </div>
+  <div class="url">x-traordinarydevelopment.com/previous-work</div>
+</div>
+
+<div class="card cream pf" id="pnp">
+  <div class="frame"><div class="bar"><i></i><i></i><i></i><span>platesandplaymakers.com</span></div></div>
+  <div class="side">
+    <div class="num">06 / 06</div>
+    <h2>Plates &amp; Playmakers</h2>
+    <p class="desc">Event platform for a luxury charity gala: chef roster galleries, live countdown, ticketing, and $10K sponsorship funnels for a nonprofit fighting hunger in Minnesota.</p>
+    <div class="tags"><span>Event platform</span><span>Ticketing</span><span>Sponsor funnel</span><span>Nonprofit</span></div>
+    <div class="live">Live</div>
+  </div>
+  <div class="url">x-traordinarydevelopment.com/previous-work</div>
+</div>
+
+<div class="card cream pf" id="start">
+  <div class="frame"><div class="bar"><i></i><i></i><i></i><span>x-traordinarydevelopment.com/start</span></div></div>
+  <div class="side">
+    <div class="num">New · For contractors</div>
+    <h2>A website that <em>books jobs.</em></h2>
+    <p class="desc">Custom-built for roofers, HVAC and remodelers. Click-to-call on every screen, estimate forms that text you instantly, reviews front and center.</p>
+    <div class="tags"><span>Free mockup in 48 hrs</span><span>Live in 14 days</span><span>You own everything</span></div>
+    <div class="live">Taking projects now</div>
+  </div>
+  <div class="url">x-traordinarydevelopment.com/start</div>
+</div>
+
+<!-- ===== THE BUILD (caption overlay on the coding timelapse) ===== -->
+<div class="card cap" id="build">
+  <div class="txt"><span class="tag">The build</span><h1 style="margin-top:14px">Designed and coded <em>by hand.</em></h1><p class="sub">No page builders, no templates. Fast, accessible, and yours to keep.</p></div>
+</div>
+
+<!-- ===== NDA / ENTERPRISE ===== -->
+<div class="card dark nda" id="nda">
+  <div class="wm"><img src="out/logo.png" alt=""></div>
+  <div class="head">
+    <span class="tag">Enterprise · NDA</span>
+    <h1 style="margin-top:20px">The work <em>you can't see.</em></h1>
+    <p class="lead">Some of the most demanding builds live behind NDAs and corporate firewalls. Ask me about them at the booth.</p>
+  </div>
+  <div class="files">
+    <div class="file"><div class="lab">File 07-A · NDA · Active</div><h3>FundStart AI</h3><p>Custom AI platform for the AEC industry: a chatbot trained on internal docs plus a search engine for government funding.</p><dl><dt>Type</dt><dd>AI / RAG platform</dd><dt>Scope</dt><dd>Full-stack + LLM ops</dd></dl></div>
+    <div class="file"><div class="lab">File 07-B · Internal · Enterprise</div><h3>U.S. Bank</h3><p>Engineering on internal applications serving extremely large user groups inside one of America's biggest banks.</p><dl><dt>Type</dt><dd>Internal apps</dd><dt>Scale</dt><dd>Enterprise / regulated</dd></dl></div>
+    <div class="file"><div class="lab">File 07-C · Internal · Enterprise</div><h3>CHS Inc.</h3><p>Multiple internal application builds for a Fortune-scale agribusiness co-op. Used by thousands of employees. Still running.</p><dl><dt>Type</dt><dd>Internal tooling</dd><dt>Scale</dt><dd>Fortune 100 co-op</dd></dl></div>
+  </div>
+  <div class="url">x-traordinarydevelopment.com/previous-work</div>
+</div>
+
+<!-- ===== LOGO WALL ===== -->
+<div class="card cream logos" id="logos">
+  <div class="wm"><img src="out/logo.png" alt=""></div>
+  <div class="head">
+    <span class="tag">Clients &amp; partners</span>
+    <h1 style="margin-top:20px">Trusted by teams <em>that ship.</em></h1>
+    <p class="lead">Startups, nonprofits, contractors, and Fortune-scale enterprises.</p>
+  </div>
+  <div class="grid">
+    <div class="cell"><img src="../images/SEH_Logo_RGB.png" alt=""></div>
+    <div class="cell"><img src="../images/LowFuelLogo.png" alt=""></div>
+    <div class="cell"><img src="../images/BBNLOGo.png" alt=""></div>
+    <div class="cell"><img src="../images/MNrisinglogo.png" alt=""></div>
+    <div class="cell"><img src="../images/SSLogo.jpeg" alt=""></div>
+    <div class="cell"><img src="../images/carexpeditelogo.webp" alt=""></div>
+  </div>
+  <p class="row2">Plus enterprise work for <b>U.S. Bank</b> and <b>CHS Inc.</b></p>
+  <div class="url">x-traordinarydevelopment.com</div>
+</div>
+
+<!-- ===== OFFER (overlay on the gold-nugget texture clip) ===== -->
+<div class="card offer" id="offer">
+  <div class="wm"><img src="out/logo.png" alt=""></div>
+  <div class="txt">
+    <span class="tag">For local businesses</span>
+    <h1 style="margin-top:20px">Free homepage mockup <em>in 48 hours.</em></h1>
+    <div class="pts">
+      <div>See your new site before you commit to anything</div>
+      <div>Live in 14 days</div>
+      <div>You own the site, the domain, and the code</div>
+    </div>
+    <span class="cta">x-traordinarydevelopment.com/start</span>
+  </div>
+</div>
+
+<!-- ===== CLOSING (overlay on the tail of the hero video, so the loop lands back on the hero) ===== -->
+<div class="card close" id="close">
+  <img src="out/logo.png" alt="">
+  <h1>Let's talk about <em>your project.</em></h1>
+  <p class="contact"><b>x-traordinarydevelopment.com</b><br>xavier.thurman@x-traordinarydevelopment.com<br><span class="gold">763-742-4823</span></p>
+  <p class="foot">Custom web · Software · AI · Minneapolis, MN · Miami, FL</p>
+</div>
+
+<script>
+  var id=new URLSearchParams(location.search).get('card')||'intro';
+  document.getElementById(id).classList.add('on');
+</script>
+</body>
+</html>

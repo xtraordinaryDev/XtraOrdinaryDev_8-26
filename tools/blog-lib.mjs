@@ -55,7 +55,7 @@ function chrome() {
   if (!/href="index\.html">Blog</.test(footer)) {
     footer = footer.replace(/([ \t]*)<li><a href="\.\.\/about\.html">About<\/a><\/li>/, (m, ind) => `${m}\n${ind}<li><a href="index.html">Blog</a></li>`);
   }
-  const tail = src.slice(src.indexOf('    <script>\n      window.intercomSettings')).replace('src="js/cursor.js"', 'src="../js/cursor.js"');
+  const tail = src.slice(src.indexOf('      <script src="js/cursor.js">')).replace('src="js/cursor.js"', 'src="../js/cursor.js"');
   const scripts = `    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="../js/main.js"></script>
 `;
