@@ -1,30 +1,32 @@
-# X-Traordinary Development
+# X-traordinary Development
 
-> Custom software, website, and AI development studio based in Minneapolis, MN, also serving Miami, FL and clients across the United States. Black-owned. Founded and led by Xavier Thurman.
+> The development team for companies that don't have one. Custom, AI-native software for mid-sized companies (200 to 2,000 people) in non-tech industries that have an IT leader but no developers, built inside their own Microsoft and Azure environment. Minneapolis, MN and Miami, FL. Black-owned. Founded and led by Xavier Thurman.
 
-We hand-code websites (no templates or page builders), build web applications, internal tools, customer portals, and AI systems, and take over and modernize existing codebases. Stack: .NET/C#, React/Next.js, Angular, Python, SQL Server/PostgreSQL, Azure/AWS/Vercel. Every project is quoted as a fixed price with a written scope, and clients own their code, content, and domain.
+We build assistants over a company's own documents, research and intelligence feeds, document generation from company data, workflow automation with a person in the loop, integrations and dashboards, and internal applications. Everything runs in the client's tenant; the client owns the code and the data. We no longer build websites.
 
 Contact: xavier.thurman@x-traordinarydevelopment.com, +1 763-742-4823, https://x-traordinarydevelopment.com/contact.html
 
-## Services
+## How we work
 
-- [Custom websites](https://x-traordinarydevelopment.com/websites.html): website design and development for businesses, nonprofits, and events
-- [Web design in Minneapolis](https://x-traordinarydevelopment.com/web-design-minneapolis.html): websites for Twin Cities businesses
-- [Web design in Miami](https://x-traordinarydevelopment.com/web-design-miami.html): websites for South Florida businesses, bilingual-ready
-- [Custom software development in Minneapolis](https://x-traordinarydevelopment.com/custom-software-development-minneapolis.html): web apps, internal tools, portals, AI systems
-- [Website redesign](https://x-traordinarydevelopment.com/website-redesign.html): rebuilding slow or dated sites without losing search rankings
-- [All development services](https://x-traordinarydevelopment.com/services.html): web, mobile, custom software, AI, .NET, React, Python, DevOps
+- [What we build](https://x-traordinarydevelopment.com/services.html): the three offers. (1) AI-Native Assessment and First Build, $15,000 to $25,000 fixed, 4 to 6 weeks: two weeks of discovery, a ranked roadmap, one working tool. (2) Retained Development Function (Run / Build / Advise), $10,000 to $20,000 a month on a 12-month term. (3) Fixed-price projects, $30,000 to $50,000.
+- [Custom software development in Minneapolis](https://x-traordinarydevelopment.com/custom-software-development-minneapolis.html)
+- [Start with an assessment](https://x-traordinarydevelopment.com/contact.html): a 30-minute call first, then a two-page scope the next day.
 
-## Work
+## Who it is for
 
-- [Previous work](https://x-traordinarydevelopment.com/previous-work.html): live client sites and products, including Works of Heart (gala and art auction for Saint John's Abbey), GridLink (procurement platform), The R3D Key (Minnesota general contractor), Plates & Playmakers (Minneapolis charity gala), Low Fuel (mobile fueling), and VSC Peptides (e-commerce)
-- Enterprise engineering experience on internal applications at U.S. Bank and CHS Inc.
+IT Directors, CIOs, COOs and CFOs at engineering and construction, agriculture and co-op, manufacturing, distribution, professional-services and regional healthcare companies with 200 to 2,000 employees and no in-house developers, usually on Microsoft 365 and Azure with a managed IT provider for infrastructure. Not small businesses, not startups, not website buyers.
+
+## Proof
+
+- Currently the entire development function for a 1,000-person Minnesota engineering firm, including an AI research-and-document platform in the firm's Azure tenant.
+- Internal applications at U.S. Bank and CHS Inc.
+- Shipped products of our own, including GridLink (procurement) and Nouri (coaching).
+- [Previous work](https://x-traordinarydevelopment.com/previous-work.html)
 
 ## Guides
 
-- [Blog](https://x-traordinarydevelopment.com/blog/): plain-English guides on website cost, WordPress vs custom code, software timelines, and hiring developers
+- [Blog](https://x-traordinarydevelopment.com/blog/): plain-English guides on custom software and AI for companies without a development team.
 
 ## Company
 
 - [About](https://x-traordinarydevelopment.com/about.html)
-- [AI consultancy](https://x-traordinary.ai/)

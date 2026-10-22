@@ -1,12 +1,18 @@
 # One topic per line. The weekly workflow takes the FIRST non-comment line, writes that post,
 # and deletes the line. When the file runs out, Claude proposes a topic that does not overlap
-# existing post titles. Add to this list any time – it is your editorial calendar.
-What an AI chatbot for a small business actually costs to build and run
-Website redesign checklist: how to switch sites without losing your Google rankings
-Custom software vs off-the-shelf SaaS: when a subscription stops making sense
-What to ask a web developer before you hire them (10 questions that reveal everything)
-How nonprofits and event organizers can sell more tickets with a better website
-Project rescue: what to do when your developer disappears with a half-finished site
-Should a small business build an app or a website first?
-Bilingual websites for Miami businesses: how to do English and Spanish right
-What "SEO-friendly website" should actually mean when a developer says it
+# existing post titles. Add to this list any time. Audience: IT leaders at mid-sized companies with no developers.
+What a developer hire actually costs a 500-person company, and what to compare it to
+"We have Copilot, so we're covered": what Copilot does and doesn't do for a mid-sized company
+The one question to ask every AI vendor: where does our data go?
+Why most AI pilots at mid-sized companies fail, and it's never the AI
+How a two-week AI assessment works, day by day
+The spreadsheet that three people run: how to tell which manual process to automate first
+What "your data never leaves your tenant" means, in plain English
+Your managed IT provider runs the network. Who builds the software?
+An assistant over your own documents: what it is, what it costs, what it can't do
+Retained development function vs. hourly contractors vs. hiring: a CFO's comparison
+What an IT Director should put in front of the board when they ask "what are we doing about AI"
+Integrating Deltek, Epicor or NetSuite with the rest of your company: what usually goes wrong
+Document generation from your past work: proposals, reports and client memos without the blank page
+Why we don't sell hours
+How to run an AI project at a company with no developers: who owns what

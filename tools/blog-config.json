@@ -1,41 +1,63 @@
 {
   "business": {
-    "name": "X-Traordinary Development",
+    "name": "X-traordinary Development",
     "url": "https://x-traordinarydevelopment.com",
     "author": "Xavier Thurman",
-    "location": "Minneapolis, MN (also serving Miami, FL and clients across the US)",
-    "description": "A Black-owned custom software and web development studio. We hand-code websites (no page builders), build web applications, internal tools, customer portals, and AI systems (.NET, React/Next.js, Angular, Python), and take over/modernize existing codebases. Fixed-price proposals, clients own their code."
+    "location": "Minneapolis, MN and Miami, FL (clients across the US)",
+    "description": "The development team for companies that don't have one. A Black-owned custom software and AI studio building AI-native software for mid-sized companies (200 to 2,000 people) in non-tech industries that have an IT leader but no developers: assistants over company documents, research feeds, document generation, workflow automation with a person in the loop, integrations and dashboards, internal applications. Everything is built inside the client's own Microsoft and Azure environment and belongs to the client. Offers: a two-week AI-Native Assessment and first build, a retained development function (Run / Build / Advise), and fixed-price projects. We no longer build websites."
   },
-  "audience": "Owners and operators of small and mid-size businesses and nonprofits – contractors, clinics, professional services, restaurants, event organizers, B2B companies – who are deciding about a website, a software project, or AI, and want a straight answer without jargon.",
-  "tone": "Plain English, direct, specific, warm but not salesy. Short paragraphs. Concrete examples. Honest about trade-offs, including when the answer is 'you don't need us'. Never hype, never clickbait, no exclamation points.",
+  "audience": "IT Directors, CIOs, COOs, CFOs and owners at mid-sized companies (200 to 2,000 employees) in engineering and construction, agriculture and co-ops, manufacturing, distribution and logistics, professional services and regional healthcare administration, who have no in-house developers and are deciding what to do about custom software and AI. They are practical, budget-conscious, skeptical of hype, and want to look capable in their own leadership meetings.",
+  "tone": "Plain English, direct, specific, a little dry, never salesy. Like a senior developer explaining something to a smart executive over coffee. Short paragraphs. Numbers instead of adjectives. One idea per section. Honest about trade-offs, including when the answer is 'you don't need us' or 'don't build this yet'. Never hype, never clickbait, no exclamation points, no emoji.",
   "approvedFacts": [
-    "Based in Minneapolis, MN; also serves Miami, FL; works remotely nationwide.",
-    "Black-owned business rooted in the Minneapolis community.",
-    "Websites are hand-coded – no templates, no page builders. Clients own the code, content, and domain.",
-    "Every project is quoted as a fixed price with a written scope before work starts.",
-    "Stack: .NET/C#, React/Next.js, Angular, Python, SQL Server/PostgreSQL, Azure/AWS/Vercel.",
+    "Based in Minneapolis, MN and Miami, FL; works with clients across the US.",
+    "Black-owned business founded and led by Xavier Thurman.",
+    "Builds custom software and AI for mid-sized companies (200 to 2,000 people) that have no in-house developers.",
+    "Everything is built inside the client's own Microsoft 365 and Azure environment; the client owns the code, the data and the environment; nothing trains anyone's model.",
+    "Three offers: a two-week AI-Native Assessment and first build (fixed price, 4 to 6 weeks); a retained development function (Run / Build / Advise) on a 12-month term; fixed-price projects.",
+    "Stack: Azure OpenAI, Azure AI Search, Entra ID, SharePoint, .NET/C#, React/Next.js, Python, SQL Server/PostgreSQL.",
     "Enterprise engineering experience on internal applications at U.S. Bank and CHS Inc.",
-    "Built FundStart AI, a custom AI/RAG research platform for the AEC industry.",
-    "Built GridLink, a full-stack procurement platform for enterprise fuel buying.",
-    "Live client sites: Works of Heart (worksofheart.us – gala & art auction for Saint John's Abbey), The R3D Key (trk-contracting.com – Minnesota general contractor), Plates & Playmakers (platesandplaymakers.com – Minneapolis charity gala), Low Fuel (low-fuel.com – mobile fueling company), VSC Peptides (research peptide e-commerce)."
+    "Currently the entire development function for a 1,000-person Midwest engineering firm, including an AI research-and-document platform in the firm's Azure tenant. Refer to it only as 'a 1,000-person Midwest engineering firm'; never name the firm.",
+    "Shipped products of our own include GridLink (a procurement platform) and Nouri (a coaching app)."
   ],
   "neverClaim": [
-    "Do not state any of our prices, price ranges, hourly rates, or timelines as facts. Market ranges attributed to 'typical' industry pricing are fine; our own pricing is not.",
+    "Do not state our prices as facts inside a blog post beyond 'a fixed-price assessment' and 'a monthly retainer'; the exact figures live on the services page.",
     "Do not invent statistics, percentages, survey results, or study citations. If a number is needed, phrase it as a general observation without a figure.",
-    "Do not name clients, awards, certifications, partners, or team members other than those in approvedFacts.",
+    "Do not name clients, awards, certifications, partners, or team members other than those in approvedFacts. Never name the engineering firm, and never describe its funding or proposal work in a way that could be sold to another engineering firm.",
     "Do not make guarantees about rankings, revenue, or results.",
-    "Do not mention competitors by name."
+    "Do not mention competitors by name.",
+    "Do not write about websites, web design, page builders, small businesses, contractors or '$399'. That audience and offer are retired.",
+    "Banned words: unlock, transform, cutting-edge, synergy, game-changer, leverage, supercharge, 10x, 'in today's fast-paced world', 'AI-powered' as a selling point."
   ],
   "internalLinks": [
-    { "href": "../web-design-minneapolis.html", "label": "Minneapolis web design", "about": "web design & development for Twin Cities businesses" },
-    { "href": "../web-design-miami.html", "label": "Miami web design", "about": "web design for South Florida businesses, bilingual-ready" },
-    { "href": "../custom-software-development-minneapolis.html", "label": "custom software development in Minneapolis", "about": "web apps, internal tools, portals, AI systems" },
-    { "href": "../website-redesign.html", "label": "website redesign service", "about": "SEO-safe rebuilds of slow/dated sites" },
-    { "href": "../websites.html", "label": "custom websites", "about": "overview of our website service" },
-    { "href": "../services.html", "label": "development services", "about": "full list of services" },
-    { "href": "../previous-work.html", "label": "previous work", "about": "portfolio of live sites and products" },
-    { "href": "../contact.html", "label": "contact us", "about": "free quote / start a conversation" }
+    {
+      "href": "../services.html",
+      "label": "what we build",
+      "about": "the three offers: assessment, retained function, fixed-price projects; the five things we build"
+    },
+    {
+      "href": "../custom-software-development-minneapolis.html",
+      "label": "custom software development in Minneapolis",
+      "about": "internal tools, portals, AI systems for Minnesota companies"
+    },
+    {
+      "href": "../previous-work.html",
+      "label": "previous work",
+      "about": "shipped products and client work"
+    },
+    {
+      "href": "../about.html",
+      "label": "about X-traordinary",
+      "about": "who we are and who we build for"
+    },
+    {
+      "href": "../contact.html",
+      "label": "start with an assessment",
+      "about": "a 30-minute call, then a two-week assessment"
+    }
   ],
-  "targetWords": { "min": 900, "max": 1500 },
+  "targetWords": {
+    "min": 900,
+    "max": 1500
+  },
   "model": "claude-opus-5"
 }
