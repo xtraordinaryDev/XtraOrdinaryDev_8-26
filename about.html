@@ -21,9 +21,11 @@
       });
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTZ0S4RLHH"></script>
-    <link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/brand/fav32.png">
-    <link rel="apple-touch-icon" href="images/brand/icon180.png">
+    <link rel="icon" href="images/brand/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="images/brand/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/brand/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/brand/favicon/favicon-48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/brand/favicon/apple-touch-icon-180.png">
     <title>About X-traordinary | The Development Team for Companies Without One</title>
     <meta property="og:site_name" content="X-traordinary Development">
     <meta name="twitter:card" content="summary_large_image">
@@ -90,8 +92,6 @@
     </script>
   </head>
   <body>
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="cursor-ring" aria-hidden="true"></div>
 
 
     <!-- Inner page header with overlay navigation -->
@@ -101,7 +101,7 @@
           <div class="row">
             <div class="col-lg-12">
               <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html"><img src="images/brand/xtra-logo-horizontal-no-tagline-for-dark.svg" alt="X-traordinary" width="220" height="55"></a>
+                <a class="navbar-brand" href="index.html"><img src="images/brand/xtra-logo-horizontal-no-tagline-color.svg" alt="X-traordinary" width="176" height="44"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -136,15 +136,12 @@
         </div>
       </div>
 
-      <div class="inner-page-hero">
-        <img src="images/about/about.webp" alt="X-traordinary Development, custom software and AI developers based in Minneapolis, MN and Miami, FL">
-        <!-- Hero headline over media (page H1) -->
-        <div class="home-hero-overlay">
-          <div class="container">
-            <div class="home-hero-copy">
-              <p class="hero-kicker">Minneapolis, MN &amp; Miami, FL</p>
-              <h1>Built by a developer who spent years inside companies like yours</h1>
-            </div>
+      <!-- Hero band (brand guide: dark surface, gold 45° accent, no stock media) -->
+      <div class="hero-band hero-band--compact">
+        <div class="container">
+          <div class="hero-copy">
+            <p class="hero-kicker">Minneapolis, MN &amp; Miami, FL</p>
+            <h1>Built by a developer who spent years inside companies like yours</h1>
           </div>
         </div>
       </div>
@@ -186,51 +183,32 @@
        <div class="row mt-5 reveal-on-scroll">
          <div class="col-lg-12">
            <div class="section-header">
-              <h2>Why choose us?</h2>
+              <h2>How we work</h2>
             </div>
          </div>
        </div>
 
        <div class="row reveal-on-scroll">
-         <div class="col-lg-6 col-md-6">
+         <div class="col-lg-12">
            <div class="why-choose-list-grid">
              <ul>
                <li>
-                 <img src="images/about/ico-1.png" alt="Quality Code icon" loading="lazy" decoding="async">
-                 <h4>Quality Code</h4>
-                 <p>We deliver clean, efficient, and well-documented code that’s easy to maintain and built to scale — ensuring long-term performance, stability, and success.</p>
+                 <h4>Everything runs in your tenant</h4>
+                 <p>Your Azure environment, your policies, your sign-in. Your data never leaves and never trains anyone&rsquo;s model. We put that in the contract.</p>
                </li>
-
                <li>
-                 <img src="images/about/ico-2.png" alt="Scaleable Applications icon" loading="lazy" decoding="async">
-                 <h4>Scaleable Applications</h4>
-                 <p>Our applications are designed to grow with you. As your business evolves, your software will adapt seamlessly to meet new demands and opportunities.</p>
+                 <h4>The most expensive process first</h4>
+                 <p>We start with the process that costs you the most hours, not with the most impressive demo. The assessment ranks them; the first build takes the top of the list.</p>
                </li>
-
                <li>
-                 <img src="images/about/ico-3.png" alt="Automation icon" loading="lazy" decoding="async">
-                 <h4>Automation</h4>
-                 <p>We integrate automation throughout the development lifecycle to speed up delivery, minimize errors, and maintain high-quality, reliable outcomes every time.</p>
+                 <h4>Your people approve; the system does the typing</h4>
+                 <p>A person stays in the loop on anything that matters: approvals, client-facing documents, money. The software routes, drafts, reminds and records.</p>
                </li>
-
                <li>
-                 <img src="images/about/ico-4.png" alt="Accountability icon" loading="lazy" decoding="async">
-                 <h4>Accountability</h4>
-                 <p>Transparent communication is key. We hold regular check-ins to stay aligned, resolve roadblocks early, and keep your project moving in the right direction.</p>
+                 <h4>Never hourly</h4>
+                 <p>A fixed-price assessment, a flat monthly retainer under one loaded developer salary, fixed-price projects when something is bigger. Everything we build is yours, with the documentation kept current in your repo.</p>
                </li>
              </ul>
-           </div>
-         </div>
-         <div class="col-lg-6 col-md-6">
-           <div class="promo-media-wrapper reveal-on-scroll">
-            <!-- 
-               UPDATED VIDEO TAG:
-               1. Added ID "promoVideo" so the script can find it.
-               2. Removed <source> tags to let JavaScript handle the file selection.
-               3. Attributes set for iOS (muted, playsinline, etc).
-            -->
-            <video id="promoVideo" autoplay muted loop playsinline webkit-playsinline preload="none">
-            </video>
            </div>
          </div>
        </div>
@@ -319,67 +297,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 
-    <!-- iOS Video Fix Script for About Page Video -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var promo = document.getElementById('promoVideo');
-        if (!promo) return;
-        // Load only when the section is near the viewport (below-the-fold video)
-        function startPromo() {
-        // Target the specific video on this page
-        var video = document.getElementById('promoVideo');
-        var videoBaseName = 'images/Tech_Services_Visual_Explainer_Animation';
-        
-        // Function to detect iOS devices
-        function isIOS() {
-          return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                 (/Macintosh/.test(navigator.userAgent) && 'ontouchend' in document);
-        }
 
-        // DECIDE WHICH VIDEO TO LOAD
-        if (isIOS()) {
-          // 1. IOS USERS: Load HLS (.m3u8) with the same name
-          console.log("iOS Device Detected. Loading HLS video.");
-          video.src = videoBaseName + '.m3u8';
-        } else {
-          // 2. ANDROID / CHROME / DESKTOP: Load MP4
-          console.log("Non-iOS Device Detected. Loading MP4 video.");
-          video.src = videoBaseName + '.mp4';
-        }
-
-        // ATTEMPT AUTOPLAY
-        var attemptCount = 0;
-        var maxAttempts = 5;
-
-        function attemptPlay() {
-          video.muted = true; // Ensure muted is set
-          var playPromise = video.play();
-          
-          if (playPromise !== undefined) {
-            playPromise.then(_ => {
-              console.log("About page video autoplay started.");
-            })
-            .catch(error => {
-              console.log("Autoplay blocked, retrying... (" + attemptCount + ")");
-              if (attemptCount < maxAttempts) {
-                attemptCount++;
-                setTimeout(attemptPlay, 500);
-              }
-            });
-          }
-        }
-
-        // Start playing
-        attemptPlay();
-      }
-        if (!('IntersectionObserver' in window)) { startPromo(); return; }
-        var io = new IntersectionObserver(function (entries) {
-          if (entries[0].isIntersecting) { io.disconnect(); startPromo(); }
-        }, { rootMargin: '600px 0px' });
-        io.observe(promo);
-      });
-    </script>
-
-      <script src="js/cursor.js"></script>
   </body>
 </html>

@@ -47,7 +47,7 @@ function chrome() {
   const headTop = up(src.slice(0, src.indexOf('<title>')));
   const fontsAndCss = up(src.slice(src.indexOf('    <link rel="preconnect" href="https://fonts.googleapis.com">'), src.indexOf('    <script type="application/ld+json">')))
     .replace(/[ \t]*<link rel="preload" as="image" href="[^"]*">\r?\n/, '');
-  const nav = up(src.slice(src.indexOf('    <!-- Previous work page header with overlay navigation -->'), src.indexOf('      <div class="inner-page-hero">')))
+  const nav = up(src.slice(src.indexOf('    <!-- Previous work page header with overlay navigation -->'), src.indexOf('      <!-- Hero band')))
     .replace('<!-- Previous work page header with overlay navigation -->', '<!-- Blog header with overlay navigation -->')
     .replace('<a class="nav-link active" href="../previous-work.html">', '<a class="nav-link" href="../previous-work.html">');
   let footer = up(src.slice(src.indexOf('    <!-- Shared footer -->'), src.indexOf('    <!-- iOS Video Fix Script')))
@@ -55,7 +55,7 @@ function chrome() {
   if (!/href="index\.html">Blog</.test(footer)) {
     footer = footer.replace(/([ \t]*)<li><a href="\.\.\/about\.html">About<\/a><\/li>/, (m, ind) => `${m}\n${ind}<li><a href="index.html">Blog</a></li>`);
   }
-  const tail = src.slice(src.indexOf('      <script src="js/cursor.js">')).replace('src="js/cursor.js"', 'src="../js/cursor.js"');
+  const tail = '  </body>\n</html>\n';
   const scripts = `    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="../js/main.js"></script>
 `;

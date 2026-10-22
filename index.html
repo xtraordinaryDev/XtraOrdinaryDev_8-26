@@ -21,9 +21,11 @@
       });
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTZ0S4RLHH"></script>
-    <link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/brand/fav32.png">
-    <link rel="apple-touch-icon" href="images/brand/icon180.png">
+    <link rel="icon" href="images/brand/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="images/brand/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/brand/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/brand/favicon/favicon-48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/brand/favicon/apple-touch-icon-180.png">
     <title>The Development Team for Companies That Don't Have One | X-traordinary</title>
     <meta property="og:site_name" content="X-traordinary Development">
     <meta name="twitter:image" content="https://x-traordinarydevelopment.com/images/og-card.jpg">
@@ -58,7 +60,6 @@
     <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"></noscript>
-    <link rel="preload" as="image" href="images/video-poster.jpg" fetchpriority="high">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- LocalBusiness Structured Data -->
@@ -154,8 +155,6 @@
     </script>
   </head>
   <body>
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="cursor-ring" aria-hidden="true"></div>
 
 
     <!-- Site header with primary navigation and hero video -->
@@ -165,7 +164,7 @@
           <div class="row">
             <div class="col-lg-12">
               <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html"><img src="images/brand/xtra-logo-horizontal-no-tagline-for-dark.svg" alt="X-traordinary" width="220" height="55"></a>
+                <a class="navbar-brand" href="index.html"><img src="images/brand/xtra-logo-horizontal-no-tagline-color.svg" alt="X-traordinary" width="176" height="44"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -200,34 +199,16 @@
         </div>
       </div>
 
-      <div class="home-hero-video">
-        <!-- 
-           NOTE: 
-           We have removed the <source> tags from here.
-           The video src will be set by JavaScript below based on the device.
-        -->
-        <video 
-           id="heroVideo"
-           autoplay 
-           muted 
-           loop 
-           playsinline 
-           webkit-playsinline 
-           preload="auto"
-           poster="images/video-poster.jpg">
-        </video>
-
-        <!-- Hero headline over video -->
-        <div class="home-hero-overlay">
-          <div class="container">
-            <div class="home-hero-copy">
-              <p class="hero-kicker">Custom software and AI · Minneapolis and Miami</p>
-              <h1>The development team for companies that don&rsquo;t have one.</h1>
-              <p class="hero-sub">Custom software and AI for mid-sized companies without developers. Built in your Microsoft and Azure environment, owned by you, run by us.</p>
-              <div class="hero-actions">
-                <a class="btn_primary" href="contact.html">Start with a two-week assessment</a>
-                <a class="btn_outline" href="services.html">See what we build</a>
-              </div>
+      <!-- Hero band (brand guide: dark surface, gold 45° accent, no stock media) -->
+      <div class="hero-band">
+        <div class="container">
+          <div class="hero-copy">
+            <p class="hero-kicker">Custom software and AI · Minneapolis and Miami</p>
+            <h1>The development team for companies that don&rsquo;t have one.</h1>
+            <p class="hero-sub">Custom software and AI for mid-sized companies without developers. Built in your Microsoft and Azure environment, owned by you, run by us.</p>
+            <div class="hero-actions">
+            <a class="btn_primary" href="contact.html">Start with a two-week assessment</a>
+            <a class="btn_outline" href="services.html">See what we build</a>
             </div>
           </div>
         </div>
@@ -238,7 +219,7 @@
 
     <!-- Proof strip -->
     <section>
-      <div class="container" style="padding-top:34px;">
+      <div class="container">
         <div class="proof-strip reveal-on-scroll">
           <span>Currently the entire development function for a <b>1,000-person Minnesota engineering firm</b></span>
           <span>Internal applications at <b>CHS Inc.</b> and <b>U.S. Bank</b></span>
@@ -399,32 +380,26 @@
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
-            <div class="client-logo-grid">
-              <div class="client-logo-column client-logo-column--up">
-                <div class="client-logo-track">
-                  <img src="images/SEH_Logo_RGB.png" alt="SEH logo" loading="lazy" decoding="async">
-                  <img src="images/MNrisinglogo.png" alt="MN Rising logo" loading="lazy" decoding="async">
-                  <!-- duplicate for seamless loop -->
-                  <img src="images/SEH_Logo_RGB.png" alt="SEH logo" aria-hidden="true">
-                  <img src="images/MNrisinglogo.png" alt="MN Rising logo" aria-hidden="true">
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="pw-dossier">
+                  <div class="pw-file"><span>Retained function</span><b>Current client</b></div>
+                  <h4>A 1,000-person Midwest engineering firm</h4>
+                  <p>No developers on staff. We are now its entire development function. First build: a retrieval-and-generation platform in the firm&rsquo;s own Azure tenant, used by its team every day.</p>
                 </div>
               </div>
-              <div class="client-logo-column client-logo-column--down">
-                <div class="client-logo-track">
-                  <img src="images/BBNLOGo.png" alt="BBN logo" loading="lazy" decoding="async">
-                  <img src="images/LowFuelLogo.png" alt="Low Fuel logo" loading="lazy" decoding="async">
-                  <!-- duplicate for seamless loop -->
-                  <img src="images/BBNLOGo.png" alt="BBN logo" aria-hidden="true">
-                  <img src="images/LowFuelLogo.png" alt="Low Fuel logo" aria-hidden="true">
+              <div class="col-12">
+                <div class="pw-dossier">
+                  <div class="pw-file"><span>Internal applications</span><b>CHS Inc. and U.S. Bank</b></div>
+                  <h4>Enterprise-scale internal software</h4>
+                  <p>Internal applications for a Fortune-scale agricultural cooperative and for one of the largest banks in the country: regulated environments, large user groups, uptime that is not negotiable.</p>
                 </div>
               </div>
-              <div class="client-logo-column client-logo-column--up">
-                <div class="client-logo-track">
-                  <img src="images/SSLogo.jpeg" alt="SS logo" loading="lazy" decoding="async">
-                  <img src="images/carexpeditelogo.webp" alt="Car Expedite logo" loading="lazy" decoding="async">
-                  <!-- duplicate for seamless loop -->
-                  <img src="images/SSLogo.jpeg" alt="SS logo" aria-hidden="true">
-                  <img src="images/carexpeditelogo.webp" alt="Car Expedite logo" aria-hidden="true">
+              <div class="col-12">
+                <div class="pw-dossier">
+                  <div class="pw-file"><span>Our own products</span><b>Three shipped</b></div>
+                  <h4>GridLink and Nouri, in production</h4>
+                  <p>A procurement platform and an AI coaching line, built and run the same way we build for clients: a model over a specific body of knowledge, a human in the loop, memory that compounds.</p>
                 </div>
               </div>
             </div>
@@ -471,7 +446,7 @@
 
     <!-- CTA band -->
     <section>
-      <div class="container" style="padding-bottom:50px;">
+      <div class="container" style="padding-bottom:var(--section);">
         <div class="cta-band reveal-on-scroll">
           <div>
             <h2>Have a list of things done by hand?</h2>
@@ -483,50 +458,6 @@
     </section>
 
     <!-- Global footer -->
-    <!-- Latest guides from the blog. The cards between the markers are rewritten by tools/build-blog.mjs. -->
-    <section>
-      <div class="container section-spacing-lg">
-        <div class="row align-center-vertical reveal-on-scroll">
-          <div class="col-lg-8">
-            <div class="section-header">
-              <h2 class="mb-3">Guides for the people who have to decide</h2>
-              <p class="mb-4">Straight answers on custom software and AI for companies without a development team: what to build first, what it costs, what to skip.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 text-lg-end">
-            <a class="btn_primary mb-4" href="blog/index.html">Read the blog</a>
-          </div>
-        </div>
-        <div class="row reveal-on-scroll">
-          <!-- blog:latest:start -->
-          <div class="col-lg-4 col-md-6 mb-4">
-            <a class="post-card" href="blog/how-long-does-custom-software-take-to-build.html">
-              <p class="post-card-kicker">Planning Guide</p>
-              <h3 class="h4">How Long Does Custom Software Take to Build?</h3>
-              <p>Most custom software projects are measured in months, not weeks. Here is what actually shapes the calendar, and how to get a useful first release sooner.</p>
-              <p class="post-meta"><time datetime="2026-09-28">September 28, 2026</time> · 7 min read</p>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <a class="post-card" href="custom-software-development-minneapolis.html">
-              <p class="post-card-kicker">Local Guide</p>
-              <h3 class="h4">Custom Software for Minnesota Companies: What We Build and How a Project Runs</h3>
-              <p>Internal tools, portals and AI systems for Twin Cities companies, with the questions Minneapolis businesses ask before they start.</p>
-              <p class="post-meta">Service guide · Minneapolis</p>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <a class="post-card" href="blog/index.html">
-              <p class="post-card-kicker">Coming next</p>
-              <h3 class="h4">What a Developer Hire Actually Costs a 500-Person Company</h3>
-              <p>Salary is the smallest part. The loaded cost, the months to find them, the ramp, and what to compare it to before you post the job.</p>
-              <p class="post-meta">New guides every week</p>
-            </a>
-          </div>
-          <!-- blog:latest:end -->
-        </div>
-      </div>
-    </section>
 
     </main>
 
@@ -606,58 +537,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
-    <script>
-      // Wait for window load: the poster is the first paint; the video should not compete with it.
-      window.addEventListener('load', function() {
-        var video = document.getElementById('heroVideo');
-        
-        // Function to detect iOS devices (iPhone, iPad, iPod)
-        function isIOS() {
-          return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                 (/Macintosh/.test(navigator.userAgent) && 'ontouchend' in document);
-        }
 
-        // DECIDE WHICH VIDEO TO LOAD
-        if (isIOS()) {
-          // 1. IOS USERS: Load HLS (.m3u8)
-          console.log("iOS Device Detected. Loading HLS video.");
-          video.src = 'images/output.m3u8';
-        } else {
-          // 2. ANDROID / CHROME / DESKTOP: Load MP4
-          console.log("Non-iOS Device Detected. Loading MP4 video.");
-          // 720p for phones / data-saver, 1080p (~6 Mbps) otherwise. Original 21 Mbps file kept in images/ but not served.
-          var small = window.innerWidth <= 768 || (navigator.connection && navigator.connection.saveData);
-          video.src = small ? 'images/xtraherosection-720.mp4' : 'images/xtraherosection-1080.mp4';
-        }
-
-        // ATTEMPT AUTOPLAY
-        // We use a small retry loop just in case the browser is slow to load the source
-        var attemptCount = 0;
-        var maxAttempts = 5;
-
-        function attemptPlay() {
-          video.muted = true; // Ensure muted
-          var playPromise = video.play();
-          
-          if (playPromise !== undefined) {
-            playPromise.then(_ => {
-              console.log("Video autoplay started.");
-            })
-            .catch(error => {
-              console.log("Autoplay blocked, retrying... (" + attemptCount + ")");
-              if (attemptCount < maxAttempts) {
-                attemptCount++;
-                setTimeout(attemptPlay, 500);
-              }
-            });
-          }
-        }
-
-        // Start playing
-        attemptPlay();
-      });
-    </script>
-
-      <script src="js/cursor.js"></script>
   </body>
 </html>

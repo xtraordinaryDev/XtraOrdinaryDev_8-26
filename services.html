@@ -21,9 +21,11 @@
       });
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTZ0S4RLHH"></script>
-    <link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/brand/fav32.png">
-    <link rel="apple-touch-icon" href="images/brand/icon180.png">
+    <link rel="icon" href="images/brand/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="images/brand/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/brand/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/brand/favicon/favicon-48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/brand/favicon/apple-touch-icon-180.png">
     <title>What We Build: Custom Software &amp; AI for Companies Without Developers | X-traordinary</title>
     <meta property="og:site_name" content="X-traordinary Development">
     <meta name="twitter:card" content="summary_large_image">
@@ -159,8 +161,6 @@
     </script>
   </head>
   <body>
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="cursor-ring" aria-hidden="true"></div>
 
 
     <!-- Services page header with overlay navigation -->
@@ -170,7 +170,7 @@
           <div class="row">
             <div class="col-lg-12">
               <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html"><img src="images/brand/xtra-logo-horizontal-no-tagline-for-dark.svg" alt="X-traordinary" width="220" height="55"></a>
+                <a class="navbar-brand" href="index.html"><img src="images/brand/xtra-logo-horizontal-no-tagline-color.svg" alt="X-traordinary" width="176" height="44"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -205,21 +205,12 @@
         </div><!-- container -->
       </div><!-- navigation-area -->
 
-      <div class="inner-page-hero">
-        <!-- 
-           UPDATED HEADER HERO:
-           Replaced <img> with <video>.
-           ID: "heroVideo".
-           Path: images/services/header
-        -->
-        <video id="heroVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="images/services/header.webp"></video>
-        <!-- Hero headline over media (page H1) -->
-        <div class="home-hero-overlay">
-          <div class="container">
-            <div class="home-hero-copy">
-              <p class="hero-kicker">What we build</p>
-              <h1>Custom software and AI for companies without developers</h1>
-            </div>
+      <!-- Hero band (brand guide: dark surface, gold 45° accent, no stock media) -->
+      <div class="hero-band hero-band--compact">
+        <div class="container">
+          <div class="hero-copy">
+            <p class="hero-kicker">What we build</p>
+            <h1>Custom software and AI for companies without developers</h1>
           </div>
         </div>
       </div>
@@ -392,7 +383,7 @@
     </section>
 
     <section>
-      <div class="container" style="padding-top:50px;padding-bottom:50px;">
+      <div class="container" style="padding-top:var(--section);padding-bottom:var(--section);">
         <div class="cta-band reveal-on-scroll">
           <div>
             <h2>Start with the assessment</h2>
@@ -484,80 +475,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 
-    <!-- iOS Video Fix Script for Services Page (Handles 2 Videos) -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        
-        // Reusable function to setup a specific video
-        function setupVideo(videoId, basePath, opts) {
-          var video = document.getElementById(videoId);
-          if (!video) return;
 
-          function isIOS() {
-            return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                   (/Macintosh/.test(navigator.userAgent) && 'ontouchend' in document);
-          }
-
-          // DECIDE WHICH VIDEO TO LOAD
-          if (isIOS()) {
-            // 1. IOS USERS: Load HLS (.m3u8)
-            console.log("iOS Device Detected. Loading: " + basePath + ".m3u8");
-            video.src = basePath + '.m3u8';
-          } else {
-            // 2. ANDROID / CHROME / DESKTOP: Load MP4
-            console.log("Non-iOS Device Detected. Loading: " + basePath + ".mp4");
-            video.src = (opts && opts.mp4) || basePath + '.mp4';
-          }
-
-          // ATTEMPT AUTOPLAY
-          var attemptCount = 0;
-          var maxAttempts = 5;
-
-          function attemptPlay() {
-            video.muted = true; // Ensure muted is set
-            var playPromise = video.play();
-            
-            if (playPromise !== undefined) {
-              playPromise.then(_ => {
-                console.log("Video autoplay started: " + videoId);
-              })
-              .catch(error => {
-                console.log("Autoplay blocked for " + videoId + ", retrying... (" + attemptCount + ")");
-                if (attemptCount < maxAttempts) {
-                  attemptCount++;
-                  setTimeout(attemptPlay, 500);
-                }
-              });
-            }
-          }
-
-          // Start playing
-          attemptPlay();
-        }
-
-        // Defer below-the-fold videos until they are near the viewport so they
-        // do not compete with the hero for bandwidth (Core Web Vitals / LCP).
-        function lazySetup(videoId, basePath, opts) {
-          var v = document.getElementById(videoId);
-          if (!v) return;
-          if (!('IntersectionObserver' in window)) { setupVideo(videoId, basePath, opts); return; }
-          var io = new IntersectionObserver(function (entries) {
-            if (entries[0].isIntersecting) { io.disconnect(); setupVideo(videoId, basePath, opts); }
-          }, { rootMargin: '600px 0px' });
-          io.observe(v);
-        }
-
-        // Initialize Header Hero Video
-        // Files: images/services/header.mp4 / .m3u8
-        // Hero is poster-only (images/services/header.mp4 was never uploaded); nothing to load.
-
-        // Initialize Body "Who We Can Help" Video
-        // Files: images/Tech_Services_Visual_Explainer_Animation.mp4 / .m3u8
-        lazySetup('promoVideo', 'images/Tech_Services_Visual_Explainer_Animation');
-
-      });
-    </script>
-
-      <script src="js/cursor.js"></script>
   </body>
 </html>

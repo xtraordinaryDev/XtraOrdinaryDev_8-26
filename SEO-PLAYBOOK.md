@@ -250,3 +250,14 @@ Lighthouse SEO was already 100 on every page tested, so this pass targeted speed
   `zztest99.html`); a dead URL removed from the sitemap.
 - **Weekly agent:** skips and posts a reminder while a draft PR is still open, instead of redrafting
   the same topic.
+
+## 12. Redesign to the October 2026 brand (2026-10-22)
+
+The stylesheet was rewritten around the brand guide in `images/Logos & Branding`: white pages with
+Raised cards, alternating light and dark bands, gold as a fill colour (Gold deep for gold text), Source
+Sans 3 throughout, and the mark's 45-degree diagonal as the only decorative angle. Every page now opens
+with a typographic hero band instead of stock video or 3D renders; the custom cursor and all autoplay
+videos are gone. The header uses the colour lockup on a Raised bar, the footer the for-dark lockup. The
+official favicon set lives in `images/brand/favicon/`; the social card (`images/og-card.jpg`) was
+regenerated. Copy was not changed. Class names from the old markup were kept so pages did not need
+rewriting; `tools/blog-lib.mjs` reads the shared header and footer from `previous-work.html`.
