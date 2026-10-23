@@ -45,7 +45,7 @@ function chrome() {
   const src = read(path.join(ROOT, 'previous-work.html'));
   const up = (s) => s.replace(/(src|href|poster)="(?!https?:|mailto:|tel:|#|\/|\.\.\/)([^"]+)"/g, '$1="../$2"');
   const headTop = up(src.slice(0, src.indexOf('<title>')));
-  const fontsAndCss = up(src.slice(src.indexOf('    <link rel="preconnect" href="https://fonts.googleapis.com">'), src.indexOf('    <script type="application/ld+json">')))
+  const fontsAndCss = up(src.slice(src.indexOf('    <link rel="preload" as="font"'), src.indexOf('    <script type="application/ld+json">')))
     .replace(/[ \t]*<link rel="preload" as="image" href="[^"]*">\r?\n/, '');
   const nav = up(src.slice(src.indexOf('    <!-- Previous work page header with overlay navigation -->'), src.indexOf('      <!-- Hero band')))
     .replace('<!-- Previous work page header with overlay navigation -->', '<!-- Blog header with overlay navigation -->')
