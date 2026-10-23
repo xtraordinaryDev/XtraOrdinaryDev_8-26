@@ -328,9 +328,20 @@ footer.bg-muted-grey { background: var(--dark-alt); color: var(--off-white); }
 .footer-bottom-bar a { color: var(--dark-muted); }
 
 /* ---------- reveal ---------- */
-.reveal-on-scroll { opacity: 0; transform: translateY(18px); transition: opacity .5s ease-out, transform .5s ease-out; }
-.reveal-on-scroll.is-visible { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .reveal-on-scroll { opacity: 1; transform: none; transition: none; } }
+/* Reveal on scroll without hiding anything: a CSS scroll-driven animation where supported,
+   plain visible content everywhere else. Nothing waits on JavaScript, so the largest text
+   block paints with the page (LCP). js/main.js still toggles .is-visible; it is harmless. */
+.reveal-on-scroll { opacity: 1; transform: none; }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-on-scroll {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 28%;
+    }
+  }
+}
+@keyframes reveal-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
 /* ---------- contact ---------- */
 .contact-subtitle { font-size: 18px; line-height: 28px; color: var(--muted); max-width: 64ch; margin: 0 auto; }
