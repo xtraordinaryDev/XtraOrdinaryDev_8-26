@@ -196,8 +196,11 @@
       </div>
 
       <!-- Hero band (brand guide: dark surface, gold 45° accent, no stock media) -->
-      <div class="hero-band">
+      <div class="hero-band hero-band--home">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-sweep" aria-hidden="true"></div>
         <div class="container">
+          <div class="hero-layout">
           <div class="hero-copy">
             <p class="hero-kicker">Custom software and AI · Minneapolis and Miami</p>
             <h1>The development team for companies that don&rsquo;t have one.</h1>
@@ -205,6 +208,22 @@
             <div class="hero-actions">
             <a class="btn_primary" href="contact.html">Start with a two-week assessment</a>
             <a class="btn_outline" href="services.html">See what we build</a>
+            </div>
+          </div>
+            <div class="demo" data-hero-demo aria-hidden="true">
+              <div class="demo-bar"><i></i><i></i><i></i>Standards assistant · built for a 1,000-person engineering firm<span>tenant: client-azure-prod</span></div>
+              <div class="demo-body">
+                <div class="demo-q"><b>PM</b><p data-demo-q></p></div>
+                <div class="demo-a"><b>AI</b><p data-demo-a></p></div>
+                <div class="demo-cites"><span class="demo-cite" data-demo-cite></span><span class="demo-cite" data-demo-cite></span></div>
+                <div class="demo-status" data-demo-status></div>
+                <div class="demo-flow" data-demo-flow>
+                  <span class="flow-step" data-flow-step>Intake</span><span class="flow-arrow">→</span>
+                  <span class="flow-step" data-flow-step>Review</span><span class="flow-arrow">→</span>
+                  <span class="flow-step" data-flow-step>Approved</span>
+                  <span class="flow-person" data-demo-approve>✓ approved by a person, recorded by the system</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -217,9 +236,9 @@
     <section>
       <div class="container">
         <div class="proof-strip reveal-on-scroll">
-          <span>Currently the entire development function for a <b>1,000-person Minnesota engineering firm</b></span>
-          <span>Internal applications at <b>CHS Inc.</b> and <b>U.S. Bank</b></span>
-          <span><b>Three</b> shipped products of our own</span>
+          <span><span class="num" data-count="1000" data-suffix="-person">1,000-person</span>Minnesota engineering firm where we are the entire development function</span>
+          <span><span class="num" data-count="2">2</span>Fortune-scale employers where we built internal applications: <b>CHS Inc.</b> and <b>U.S. Bank</b></span>
+          <span><span class="num" data-count="3">3</span>Shipped products of our own, in production</span>
         </div>
       </div>
     </section>
@@ -404,6 +423,39 @@
       </div>
     </section>
 
+    <!-- Shipped products, in device frames -->
+    <section>
+      <div class="container section-spacing-lg">
+        <div class="row align-center-vertical reveal-on-scroll">
+          <div class="col-lg-7">
+            <div class="section-header">
+              <p class="hero-kicker">Our own products</p>
+              <h2 class="mb-3">The same patterns, shipped as products</h2>
+              <p class="mb-0">GridLink drafts an RFP from one sentence, ranks verified suppliers and briefs the buyer on every bid. Nouri texts a client their workout and meals each morning in their coach&rsquo;s voice and logs what they reply. A model over a specific body of knowledge, a person in the loop, memory that compounds: the pattern we build inside clients&rsquo; tenants.</p>
+            </div>
+          </div>
+          <div class="col-lg-5 text-lg-end">
+            <a class="btn_outline" href="previous-work.html">See the work</a>
+          </div>
+        </div>
+        <div class="devices mt-5 reveal-on-scroll">
+          <div>
+            <div class="device device-laptop" data-tilt>
+              <div class="device-bar"><i></i><i></i><i></i></div>
+              <img src="assetsmschf/gridlink-desktop.webp" alt="GridLink: an RFP drafted from one sentence, three verified bids ranked with a recommendation" width="1200" height="750" loading="lazy" decoding="async">
+            </div>
+            <div class="device-caption"><b>GridLink</b><span>AI-native fuel procurement · Next.js · in production</span></div>
+          </div>
+          <div>
+            <div class="device device-phone" data-tilt>
+              <img src="assetsmschf/nouri-phone.webp" alt="Nouri: a coach's morning text with the day's workout and meals" width="540" height="1169" loading="lazy" decoding="async">
+            </div>
+            <div class="device-caption"><b>Nouri</b><span>Coaching by text · live</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- How it starts -->
     <section>
       <div class="container section-spacing-lg">
@@ -533,6 +585,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
+    <script src="js/motion.js" defer></script>
 
   </body>
 </html>
